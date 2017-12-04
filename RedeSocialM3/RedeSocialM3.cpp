@@ -2,10 +2,14 @@
 //
 
 #include "stdafx.h"
-
+#include <iostream>
+#include <string>
+#include "Cadastro.h"
+using namespace std;
 
 int main()
 {
+	data();
     return 0;
 }
 

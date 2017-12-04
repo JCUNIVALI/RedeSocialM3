@@ -1,37 +1,53 @@
 #ifndef CADASTRO_H
 #define CADASTRO_H
+
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
 #include <time.h>
+#include "InterfaceCadastro.h"
 
 using namespace std;
 
-string userName() {
+string userName() {/*Ainda faltam etapas de verificaçao do username, ja que é preciso o struct do usuario que ainda nao foi criado*/
 	string userName;
-	cout << "Digite seu username: " << endl;
+	CadastrarUserName();
 	cin >> userName;
 	return "@"+userName;
 }
-string cadastrarSenha() {
+string senhaCadastro() {
 	string senha, temp;
-	cout << "Defina uma senha: " << endl;
+	CadastrarSenha(1);
 	cin >> senha;
-	cout << "Confirme sua senha: " << endl;
+	CadastrarSenha(2);
 	cin >> temp;
 	if (senha != temp) {
-		cout << "Senhas nao conferem." << endl;
-		cadastrarSenha();
+		CadastrarSenha(3);
+		senhaCadastro();
 	}
 	return senha;
 }
-string nome() {
-	string nome;
-	cout << "Digite seu nome completo";
+string nomeCadastro() {
+	string nome="nada";
+	CadastrarNome();
 	cin >> nome;
+	int tam = nome.length;
+	for (int x = 0; x < tam; x++) {
+		if (x == 0) {
+			if ((int)nome[x] >= 97 && (int)nome[x] <= 122) {
+				nome[x]=(int)nome[x] - 32;
+			}
+		}
+		if ((int)nome[x]<tam) {
+				if ((int)nome[x + 1] >= 97 && (int)nome[x + 1] <= 122) {
+					nome[x]=(int)nome[x] - 32;
+				}
+			}
+		}
+	}
+	cout << nome;
 	return nome;
 }
-
 bool data() {
 	char dataString [9];
     char tempoString [9];
@@ -61,7 +77,7 @@ bool data() {
 	return false;
 }
 void cadastrar() {
-
+	data();
 }
 
 

@@ -38,7 +38,8 @@ string nomeCadastro() {
 				nome[x]=(int)nome[x] - 32;
 			}
 		}
-		if ((int)nome[x]<tam) {
+		if ((int)nome[x]==32) {
+			if (x+1<tam){
 				if ((int)nome[x + 1] >= 97 && (int)nome[x + 1] <= 122) {
 					nome[x]=(int)nome[x] - 32;
 				}

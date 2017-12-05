@@ -73,7 +73,6 @@ string dataAtual() {
 	for (int i = 0; i < 8; i++) {
 		data += temp[i];
 	}
-	cout << data << endl;
 	return data;
 }
 void separarData(int &diaTemp, int &mesTemp, int &anoTemp) {
@@ -123,15 +122,21 @@ bool validaData(int dia,int mes,int &ano) {
 	}
 	int mesesTemp = meses[mes - 1];
 	int diaCont = mesesTemp - dia;
+
 	for (int x = mes; x < 12; x++) {
 		diaCont += meses[x];
 	}
 	for (int x = ano + 1; x < anoAtual; x++) {
 		diaCont += 365;
 	}
-	for (int x = 0; x < mesTool; x++) {
+	for (int x = 0; x < mesTool-1; x++) {
 		diaCont += meses[x];
 	}
+	diaCont += dia;
+	cout << diaCont;
+	return false;
+
+
 
 }
 string dataCadastro(string &erro) {
@@ -150,7 +155,7 @@ string dataCadastro(string &erro) {
 	return data;
 }
 void cadastrar() {
-	string erro;
+	string erro="";
 	dataCadastro(erro);
 	cout << erro;
 }

@@ -73,6 +73,7 @@ string dataAtual() {
 	for (int i = 0; i < 8; i++) {
 		data += temp[i];
 	}
+	cout << data << endl;
 	return data;
 }
 void separarData(int &diaTemp, int &mesTemp, int &anoTemp) {
@@ -87,19 +88,11 @@ void separarData(int &diaTemp, int &mesTemp, int &anoTemp) {
 	mesTemp += mes * 10;
 	anoTemp += ano * 10;
 }
-string dataCadastro(string &erro) {
-	string data;
-	DataNascimento(0);
-	int dia, mes, ano;
+bool validaData(int dia,int mes,int &ano) {
 	int diaTool, mesTool, anoTool, anoAtual;
 	separarData(diaTool, mesTool, anoTool);
-	cin >> dia;
-	DataNascimento(1);
-	cin >> mes;
-	DataNascimento(2);
-	cin >> ano;
 	anoAtual = anoTool + 2000;
-	anoTool +=2000-18;
+	anoTool += 2000 - 18;
 	if (ano>40 && ano<100) {
 		ano += 1900;
 	}
@@ -109,27 +102,40 @@ string dataCadastro(string &erro) {
 	if (ano > 0 && ano < 40) {
 		ano += 2000;
 	}
-	int janeiro = 28;
-	int fevereiro = 28;
-	int marco = 31;
-	int abril = 30;
-	int maio = 31;
-	int junho = 30;
-	int julho = 31;
-	int agosto = 31;
-	int setembro = 30;
-	int outubro = 31;
-	int novembro = 30;
-	int desembro = 31;
-	int anosBissextos=0;
+	int meses[12];
+	meses[0] = 31;
+	meses[1] = 28;
+	meses[2] = 31;
+	meses[3] = 30;
+	meses[4] = 31;
+	meses[5] = 30;
+	meses[6] = 31;
+	meses[7] = 31;
+	meses[8] = 30;
+	meses[9] = 31;
+	meses[10] = 30;
+	meses[11] = 31;
+
+	int anosBissextos = 0;
 	for (int x = ano; x <= anoAtual; x++) {
 		if (x % 4 == 0) {
 			anosBissextos++;
 		}
 	}
 	cout << anosBissextos;
+}
+string dataCadastro(string &erro) {
+	string data;
+	DataNascimento(0);
+	int dia, mes, ano;
+	cin >> dia;
+	DataNascimento(1);
+	cin >> mes;
+	DataNascimento(2);
+	cin >> ano;
+	validaData(dia, mes, ano);
 	
-	
+	data = dia + '/' + mes +'/'+ ano;
 
 	return data;
 }

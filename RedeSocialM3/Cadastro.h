@@ -88,10 +88,9 @@ void separarData(int &diaTemp, int &mesTemp, int &anoTemp) {
 	anoTemp += ano * 10;
 }
 bool validaData(int dia,int mes,int &ano) {
-	int diaTool, mesTool, anoTool, anoAtual;
+	int diaTool, mesTool, anoTool;
 	separarData(diaTool, mesTool, anoTool);
-	anoAtual = anoTool + 2000;
-	anoTool += 2000 - 18;
+	anoTool += 2000;
 	if (ano>40 && ano<100) {
 		ano += 1900;
 	}
@@ -115,28 +114,23 @@ bool validaData(int dia,int mes,int &ano) {
 	meses[10] = 30;
 	meses[11] = 31;
 	int anosBissextos = 0;
-	for (int x = ano; x <= anoAtual; x++) {
+	for (int x = ano; x <= anoTool; x++) {
 		if (x % 4 == 0) {
 			anosBissextos++;
 		}
 	}
-	int mesesTemp = meses[mes - 1];
-	int diaCont = mesesTemp - dia;
-
+	int diaCont = meses[mes - 1] -dia;
 	for (int x = mes; x < 12; x++) {
 		diaCont += meses[x];
 	}
-	for (int x = ano + 1; x < anoAtual; x++) {
+	for (int x = ano + 1; x < anoTool; x++) {
 		diaCont += 365;
 	}
 	for (int x = 0; x < mesTool-1; x++) {
 		diaCont += meses[x];
 	}
-	diaCont += dia;
-	cout << diaCont;
+	diaCont += diaTool+ anosBissextos;
 	return false;
-
-
 
 }
 string dataCadastro(string &erro) {
@@ -149,9 +143,7 @@ string dataCadastro(string &erro) {
 	DataNascimento(2);
 	cin >> ano;
 	validaData(dia, mes, ano);
-	
 	data = dia + '/' + mes +'/'+ ano;
-
 	return data;
 }
 void cadastrar() {

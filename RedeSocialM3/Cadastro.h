@@ -9,14 +9,68 @@
 #include "conio.h"
 
 using namespace std;
-
-string userName() {/*Ainda faltam etapas de verificaçao do username, ja que é preciso o struct do usuario que ainda nao foi criado*/
+struct Usuario {
+	string UserName;
+	string SenhaCadastro;
+	string NomeUsuario;
+	string DataNascimento;
+	string Genero;
+	Usuario(string umUserName, string umSenhaCadastro, string umNomeUsuario, string umDataNascimento, string umGenero) {
+		this->UserName = umUserName;
+		this->SenhaCadastro = umSenhaCadastro;
+		this->NomeUsuario = umNomeUsuario;
+		this->DataNascimento = umDataNascimento;
+		this->Genero = umGenero;
+	}
+};
+struct ElementoListaUsuario {
+	Usuario *dado;
+	ElementoListaUsuario *proximo;
+	ElementoListaUsuario(Usuario *umdado) {
+		this->dado = umdado;
+		this->proximo = NULL;
+	}
+};
+struct ListaUsuario {
+	ElementoListaUsuario *inicio;
+	ListaUsuario(ElementoListaUsuario *uminicio) {
+		this->inicio = uminicio;
+	}
+	void InserirElemento(ElementoListaUsuario *NovoUsuario) {
+		ElementoListaUsuario *atual = this->inicio;
+		if (atual == NULL) {
+			this->inicio = NovoUsuario;
+			return;
+		}
+		while (atual != NULL) {
+			if (atual->proximo == NULL) {
+				atual->proximo = NovoUsuario;
+				break;
+			}
+			atual = atual->proximo;
+		}
+	}
+	bool VerificarUsername(string username) {
+		ElementoListaUsuario *atual = this->inicio;
+		if (atual == NULL)
+			return true;
+		while (atual->dado->UserName != username && atual->proximo != NULL ) {
+			if (atual->dado->UserName == username) {
+				return false;
+			}
+			atual = atual->proximo;
+		}
+		return true;
+	}
+};
+string UserName(string &erro) {/*Ainda faltam etapas de verificaçao do username, ja que é preciso o struct do usuario que ainda nao foi criado*/
 	string userName;
 	CadastrarUserName();
 	cin >> userName;
+
 	return "@"+userName;
 }
-string senhaCadastro() {
+string SenhaCadastro() {
 	string senha, temp;
 	CadastrarSenha(1);
 	cin >> senha;
@@ -24,11 +78,11 @@ string senhaCadastro() {
 	cin >> temp;
 	if (senha != temp) {
 		CadastrarSenha(3);
-		senhaCadastro();
+		SenhaCadastro();
 	}
 	return senha;
 }
-string nomeCadastro() {
+string NomeCadastro() {
 	string nome;
 	CadastrarNome();
 	getline (cin,nome);
@@ -49,7 +103,7 @@ string nomeCadastro() {
 	cout << nome;
 	return nome;
 }
-string dataAtual() {
+string DataAtual() {
 	char dataChar [9];
     char tempoChar [9];
 	_strdate(dataChar);
@@ -76,7 +130,7 @@ string dataAtual() {
 	return data;
 }
 void separarData(int &diaTemp, int &mesTemp, int &anoTemp) {
-	string data=dataAtual();
+	string data=DataAtual();
 	int dia = (int)data[0] - 48;
 	diaTemp = (int)data[1] - 48;
 	int mes = (int)data[3] - 48;
@@ -130,6 +184,9 @@ bool validaData(int dia,int mes,int &ano) {
 		diaCont += meses[x];
 	}
 	diaCont += diaTool+ anosBissextos;
+	if (diaCont >= 6576) {
+		return true;
+	}
 	return false;
 
 }
@@ -142,12 +199,18 @@ string dataCadastro(string &erro) {
 	cin >> mes;
 	DataNascimento(2);
 	cin >> ano;
-	validaData(dia, mes, ano);
-	data = dia + '/' + mes +'/'+ ano;
-	return data;
+	if (validaData(dia, mes, ano)) {
+		data = dia + '/' + mes + '/' + ano;
+		return data;
+	}
+	erro = "Você não tem a idade mínima para criar uma conta!";
+	return erro;
 }
 void cadastrar() {
 	string erro="";
+	string username;
+	username = UserName(erro);
+
 	dataCadastro(erro);
 	cout << erro;
 }

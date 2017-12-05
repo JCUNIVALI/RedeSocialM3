@@ -115,14 +115,24 @@ bool validaData(int dia,int mes,int &ano) {
 	meses[9] = 31;
 	meses[10] = 30;
 	meses[11] = 31;
-
 	int anosBissextos = 0;
 	for (int x = ano; x <= anoAtual; x++) {
 		if (x % 4 == 0) {
 			anosBissextos++;
 		}
 	}
-	cout << anosBissextos;
+	int mesesTemp = meses[mes - 1];
+	int diaCont = mesesTemp - dia;
+	for (int x = mes; x < 12; x++) {
+		diaCont += meses[x];
+	}
+	for (int x = ano + 1; x < anoAtual; x++) {
+		diaCont += 365;
+	}
+	for (int x = 0; x < mesTool; x++) {
+		diaCont += meses[x];
+	}
+
 }
 string dataCadastro(string &erro) {
 	string data;

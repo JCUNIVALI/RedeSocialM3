@@ -42,32 +42,33 @@ struct ListaUsuario {
 			this->inicio = NovoUsuario;
 			return;
 		}
-		while (atual != NULL) {
+		do {
 			if (atual->proximo == NULL) {
 				atual->proximo = NovoUsuario;
 				break;
 			}
 			atual = atual->proximo;
-		}
+		} while(atual != NULL);
 	}
-	bool VerificarUsername(string username) {
-		ElementoListaUsuario *atual = this->inicio;
-		if (atual == NULL)
-			return true;
-		while (atual->dado->UserName != username && atual->proximo != NULL ) {
-			if (atual->dado->UserName == username) {
-				return false;
+	bool VerificarUsername(string username, string &erro) {
+		if (this->inicio != NULL) {
+			ElementoListaUsuario *atual = this->inicio;
+			while (atual != NULL){
+				if (atual->dado->UserName == username) {
+					erro = "Esse username já existe!";
+					return false;
+				}
+				atual = atual->proximo;
 			}
-			atual = atual->proximo;
+			return true;
 		}
 		return true;
 	}
 };
-string UserName(string &erro) {/*Ainda faltam etapas de verificaçao do username, ja que é preciso o struct do usuario que ainda nao foi criado*/
+string UserName() {/*Ainda faltam etapas de verificaçao do username, ja que é preciso o struct do usuario que ainda nao foi criado*/
 	string userName;
 	CadastrarUserName();
 	cin >> userName;
-
 	return "@"+userName;
 }
 string SenhaCadastro() {
@@ -206,13 +207,16 @@ string dataCadastro(string &erro) {
 	erro = "Você não tem a idade mínima para criar uma conta!";
 	return erro;
 }
-void cadastrar() {
+void cadastrar(int &cont) {
+	ElementoListaUsuario *elemento = new ElementoListaUsuario(new Usuario (" ", "", " ", " "," "));
+	ListaUsuario *lista = new ListaUsuario(elemento);
 	string erro="";
 	string username;
-	username = UserName(erro);
-
-	dataCadastro(erro);
-	cout << erro;
+	username = UserName();
+	while (!lista->VerificarUsername(username, erro)) {
+		cout << erro;
+		username = UserName();
+	}
 }
 
 

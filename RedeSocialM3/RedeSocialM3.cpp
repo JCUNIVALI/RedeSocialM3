@@ -9,7 +9,8 @@ using namespace std;
 
 int main()
 {
-	cadastrar();
+	int cont = 0;
+	cadastrar(cont);
     return 0;
 }
 

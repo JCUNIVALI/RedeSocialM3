@@ -7,6 +7,8 @@
 #include <time.h>
 #include "InterfaceCadastro.h"
 #include "conio.h"
+#include <windows.h>
+#include <stdlib.h>
 
 using namespace std;
 struct Usuario {
@@ -65,7 +67,7 @@ struct ListaUsuario {
 		return true;
 	}
 };
-string UserName() {/*Ainda faltam etapas de verificaçao do username, ja que é preciso o struct do usuario que ainda nao foi criado*/
+string UserName() {
 	string userName;
 	CadastrarUserName();
 	cin >> userName;
@@ -86,7 +88,7 @@ string SenhaCadastro() {
 string NomeCadastro() {
 	string nome;
 	CadastrarNome();
-	getline (cin,nome);
+	getline(cin, nome);
 	for (int x = 0; x < nome.length(); x++) {
 		if (x == 0) {
 			if ((int)nome[x] >= 97 && (int)nome[x] <= 122) {
@@ -101,7 +103,6 @@ string NomeCadastro() {
 			}
 		}
 	}
-	cout << nome;
 	return nome;
 }
 string DataAtual() {
@@ -189,7 +190,6 @@ bool validaData(int dia,int mes,int &ano) {
 		return true;
 	}
 	return false;
-
 }
 string dataCadastro(string &erro) {
 	string data;
@@ -207,17 +207,19 @@ string dataCadastro(string &erro) {
 	erro = "Você não tem a idade mínima para criar uma conta!";
 	return erro;
 }
-void cadastrar(int &cont) {
-	ElementoListaUsuario *elemento = new ElementoListaUsuario(new Usuario (" ", "", " ", " "," "));
-	ListaUsuario *lista = new ListaUsuario(elemento);
+void cadastrar() {
+	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario(" ", "", " ", " ", " ")));
 	string erro="";
-	string username;
+	string username, senha, nome, data, genero; /*GENERO AINDA NAO TEMOS*/
 	username = UserName();
 	while (!lista->VerificarUsername(username, erro)) {
 		cout << erro;
 		username = UserName();
-
 	}
+	nome=NomeCadastro();
+	
+	cout << username << endl << senha << endl << nome << endl << data << endl;
+
 }
 
 

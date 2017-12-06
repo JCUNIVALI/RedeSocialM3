@@ -216,6 +216,7 @@ void cadastrar(int &cont) {
 	while (!lista->VerificarUsername(username, erro)) {
 		cout << erro;
 		username = UserName();
+
 	}
 }
 

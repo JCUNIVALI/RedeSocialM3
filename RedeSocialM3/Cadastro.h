@@ -75,14 +75,15 @@ string UserName() {
 }
 string SenhaCadastro() {
 	string senha, temp;
-	CadastrarSenha(1);
-	cin >> senha;
-	CadastrarSenha(2);
-	cin >> temp;
-	if (senha != temp) {
-		CadastrarSenha(3);
-		SenhaCadastro();
-	}
+	do {
+		CadastrarSenha(1);
+		cin >> senha;
+		CadastrarSenha(2);
+		cin >> temp;
+		if (senha != temp) {
+			CadastrarSenha(3);
+		}
+	} while (senha != temp);
 	return senha;
 }
 string NomeCadastro() {
@@ -216,8 +217,11 @@ void cadastrar() {
 		cout << erro;
 		username = UserName();
 	}
+	senha = SenhaCadastro();
+	getchar();
 	nome=NomeCadastro();
-	
+	data = dataCadastro(erro);
+
 	cout << username << endl << senha << endl << nome << endl << data << endl;
 
 }

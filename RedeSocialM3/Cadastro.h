@@ -226,11 +226,17 @@ string dataCadastro(string &erro) {
 	erro = "Você não tem a idade mínima para criar uma conta!";
 	return erro;
 }
+string Genero(int selecao) {
+	if (selecao == 0) {
+		return "Masculino";
+	}
+	return "Feminino";
+}
 void cadastrar() {
-	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario(" ", "", " ", " ", " ")));
+	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("admin", "admin", "Administrador", " ", " ")));
 	string erro="";
-	string username, senha, nome, data, genero; /*GENERO AINDA NAO TEMOS*/
-	username = UserName();
+	string username, senha, nome, data, genero;
+	/*username = UserName();
 	while (!lista->VerificarUsername(username, erro)) {
 		cout << erro;
 		username = UserName();
@@ -241,7 +247,9 @@ void cadastrar() {
 	data = dataCadastro(erro);
 
 	cout << username << endl << senha << endl << nome << endl << data << endl;
-
+	*/
+	SelecionarGenero();
+	
 }
 
 

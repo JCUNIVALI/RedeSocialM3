@@ -7,8 +7,6 @@
 #include <time.h>
 #include "InterfaceCadastro.h"
 #include "conio.h"
-#include <windows.h>
-#include <stdlib.h>
 
 using namespace std;
 struct Usuario {
@@ -53,6 +51,9 @@ struct ListaUsuario {
 		} while(atual != NULL);
 	}
 	bool VerificarUsername(string username, string &erro) {
+		if (this->inicio == NULL) {
+			return true;
+		}
 		if (this->inicio != NULL) {
 			ElementoListaUsuario *atual = this->inicio;
 			while (atual != NULL){
@@ -65,6 +66,22 @@ struct ListaUsuario {
 			return true;
 		}
 		return true;
+	}
+	bool RemoverUltimoElemento() {
+		if (this->inicio == NULL) {
+			return false;
+		}
+		ElementoListaUsuario *atual = this->inicio;
+		while (atual->proximo != NULL) {
+			if (atual->proximo->proximo != NULL) {
+				delete atual->proximo;
+				atual->proximo = NULL;
+				return true;
+			}
+			atual = atual->proximo;
+		}
+		delete this->inicio;
+		this->inicio = NULL;
 	}
 };
 string UserName() {
@@ -201,8 +218,9 @@ string dataCadastro(string &erro) {
 	cin >> mes;
 	DataNascimento(2);
 	cin >> ano;
+	system("cls");
 	if (validaData(dia, mes, ano)) {
-		data = dia + '/' + mes + '/' + ano;
+		data = to_string(dia) + "/" + to_string(mes) + "/" + to_string(ano);
 		return data;
 	}
 	erro = "Você não tem a idade mínima para criar uma conta!";

@@ -48,7 +48,7 @@ int CadastrarAno() {
 		selecao = _getch();
 	}
 }
-int CadastrarDia() {
+int CadastrarDia(int dias) {
 	int selecao = 72;
 	int cont = 0;
 	int opcao = 0;
@@ -62,8 +62,8 @@ int CadastrarDia() {
 			cont--;
 		}
 		if (opcao == 0) {
-			if (cont > 31) {
-				cont = 31;
+			if (cont > dias) {
+				cont = dias;
 			}
 			if (cont < 10) {
 				system("cls");

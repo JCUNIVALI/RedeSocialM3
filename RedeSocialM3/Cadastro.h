@@ -165,15 +165,6 @@ bool validaData(int dia,int mes,int &ano) {
 	int diaTool, mesTool, anoTool;
 	separarData(diaTool, mesTool, anoTool);
 	anoTool += 2000;
-	if (ano>40 && ano<100) {
-		ano += 1900;
-	}
-	if (ano == 0) {
-		ano = 2000;
-	}
-	if (ano > 0 && ano < 40) {
-		ano += 2000;
-	}
 	int meses[12];
 	meses[0] = 31;
 	meses[1] = 28;
@@ -192,6 +183,9 @@ bool validaData(int dia,int mes,int &ano) {
 		if (x % 4 == 0) {
 			anosBissextos++;
 		}
+	}
+	if (mes > 2 && ano % 4 == 0) {
+		anosBissextos--;
 	}
 	int diaCont = meses[mes - 1] -dia;
 	for (int x = mes; x < 12; x++) {
@@ -212,9 +206,20 @@ bool validaData(int dia,int mes,int &ano) {
 string dataCadastro(string &erro) {
 	string data;
 	int dia, mes, ano;
-	dia = CadastrarDia();
-	mes = CadastrarMes();
 	ano = CadastrarAno();
+	mes = CadastrarMes();
+	if (mes == 2 && ano % 4 == 0) {
+		dia = CadastrarDia(29);
+	}
+	else if (mes == 2 && ano % 4 != 0) {
+		dia = CadastrarDia(28);
+	}
+	if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
+		dia = CadastrarDia(31);
+	}
+	else if(mes==4||mes==6||mes==9||mes==11) {
+		dia = CadastrarDia(30);
+	}
 	system("cls");
 	if (validaData(dia, mes, ano)) {
 		data = to_string(dia) + "/" + to_string(mes) + "/" + to_string(ano);

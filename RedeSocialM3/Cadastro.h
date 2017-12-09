@@ -211,13 +211,10 @@ bool validaData(int dia,int mes,int &ano) {
 }
 string dataCadastro(string &erro) {
 	string data;
-	DataNascimento(0);
 	int dia, mes, ano;
-	cin >> dia;
-	DataNascimento(1);
-	cin >> mes;
-	DataNascimento(2);
-	cin >> ano;
+	dia = CadastrarDia();
+	mes = CadastrarMes();
+	ano = CadastrarAno();
 	system("cls");
 	if (validaData(dia, mes, ano)) {
 		data = to_string(dia) + "/" + to_string(mes) + "/" + to_string(ano);
@@ -247,8 +244,6 @@ void cadastrar() {
 	data = dataCadastro(erro);
 	genero=Genero(SelecionarGenero());
 	cout << username << endl << senha << endl << nome << endl << data << endl<<genero<<endl;
-	
 }
-
 
 #endif

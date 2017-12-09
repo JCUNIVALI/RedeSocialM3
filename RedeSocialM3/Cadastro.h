@@ -88,6 +88,7 @@ string UserName() {
 	string userName;
 	CadastrarUserName();
 	cin >> userName;
+	system("cls");
 	return "@"+userName;
 }
 string SenhaCadastro() {
@@ -101,6 +102,7 @@ string SenhaCadastro() {
 			CadastrarSenha(3);
 		}
 	} while (senha != temp);
+	system("cls");
 	return senha;
 }
 string NomeCadastro() {
@@ -121,6 +123,7 @@ string NomeCadastro() {
 			}
 		}
 	}
+	system("cls");
 	return nome;
 }
 string DataAtual() {

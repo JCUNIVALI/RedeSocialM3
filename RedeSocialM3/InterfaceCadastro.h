@@ -49,6 +49,7 @@ int SelecionarGenero() {
 			cout << " Masculino" << endl << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Feminino" << "  \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC" << endl;
 		}
 		if (genero == 13) {
+			system("cls");
 			return opcao;
 		}
 		genero = _getch();

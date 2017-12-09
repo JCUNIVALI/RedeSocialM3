@@ -233,10 +233,10 @@ string Genero(int selecao) {
 	return "Feminino";
 }
 void cadastrar() {
-	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("admin", "admin", "Administrador", " ", " ")));
+	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")));
 	string erro="";
 	string username, senha, nome, data, genero;
-	/*username = UserName();
+	username = UserName();
 	while (!lista->VerificarUsername(username, erro)) {
 		cout << erro;
 		username = UserName();
@@ -245,10 +245,8 @@ void cadastrar() {
 	getchar();
 	nome=NomeCadastro();
 	data = dataCadastro(erro);
-
-	cout << username << endl << senha << endl << nome << endl << data << endl;
-	*/
-	SelecionarGenero();
+	genero=Genero(SelecionarGenero());
+	cout << username << endl << senha << endl << nome << endl << data << endl<<genero<<endl;
 	
 }
 

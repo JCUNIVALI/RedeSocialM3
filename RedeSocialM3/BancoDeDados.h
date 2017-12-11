@@ -244,11 +244,8 @@ void CriarConta(ListaUsuario *lista) {
 			if (erro != " ")
 				cout << erro << endl;
 			username = UserName();
-			if (username == "exit") {
-				break;
-			}
-		} while (!lista->VerificarUsername(username, erro));
-		if (username == "exit") {
+		} while (username=="exit" || !lista->VerificarUsername(username, erro) );
+		if (username == "@exit") {
 			return;
 		}
 		erro = " ";

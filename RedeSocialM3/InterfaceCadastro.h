@@ -2,6 +2,7 @@
 #define INTERFACECADASTRO_H
 #include <iostream>
 #include "conio.h"
+
 using namespace std;
 
 void CadastrarUserName() {
@@ -34,12 +35,12 @@ int CadastrarAno() {
 		}
 		if (opcao == 0) {
 				system("cls");
-				cout << "Escolha o ano: " << endl;
+				cout << "Escolha o seu ano de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 		if (opcao == 1) {
 				system("cls");
-				cout << "Escolha o ano: " << endl;
+				cout << "Escolha o seu ano de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 		if (selecao == 13) {
@@ -68,14 +69,12 @@ int CadastrarDia(int dias) {
 			}
 			if (cont < 10) {
 				system("cls");
-				cout << "Insira sua data de nascimento." << endl;
-				cout << "Escolha o dia: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << "  \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
+				cout << "Escolha o dia do seu nascimento." << endl;
+				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << "0"<<cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
 			}
 			else if (cont > 9) {
 				system("cls");
-				cout << "Insira sua data de nascimento." << endl;
-				cout << "Escolha o dia: " << endl;
+				cout << "Escolha o dia do seu nascimento." << endl; 
 				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
 			}
 		}
@@ -85,14 +84,12 @@ int CadastrarDia(int dias) {
 			}
 			if (cont < 10) {
 				system("cls");
-				cout << "Insira sua data de nascimento." << endl;
-				cout << "Escolha o dia: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << "  \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
+				cout << "Escolha o dia do seu nascimento." << endl;
+				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << "0"<<cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
 			}
 			else if (cont > 9) {
 				system("cls");
-				cout << "Insira sua data de nascimento." << endl;
-				cout << "Escolha o dia: " << endl;
+				cout << "Escolha o dia do seu nascimento." << endl;
 				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
 			}
 		}
@@ -122,62 +119,62 @@ int CadastrarMes() {
 			}
 			if (cont == 1) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Janeiro "  << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 2) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Fevereiro" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 3) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Março  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				cout << "Escolha seu mes de nascimento: " << endl;
+				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Marco  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 4) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Abril  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 5) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Maio   " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 6) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Junho  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 7) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Julho  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 8) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Agosto  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 9) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Setemebro" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 10) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Outubro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 11) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Novembro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 12) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Dezembro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 		}
@@ -187,62 +184,62 @@ int CadastrarMes() {
 			}
 			if (cont == 1) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Janeiro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 2) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Fevereiro" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 3) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Março  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				cout << "Escolha seu mes de nascimento: " << endl;
+				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Marco  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 4) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Abril  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 5) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Maio   " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 6) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Junho  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 7) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Julho  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 8) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Agosto  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 9) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Setemebro" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 10) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Outubro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 11) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Novembro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 			if (cont == 12) {
 				system("cls");
-				cout << "Escolha o mes: " << endl;
+				cout << "Escolha seu mes de nascimento: " << endl;
 				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Dezembro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
 			}
 		}

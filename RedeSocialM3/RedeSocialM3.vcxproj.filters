@@ -24,10 +24,10 @@
     <ClInclude Include="targetver.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="Cadastro.h">
+    <ClInclude Include="InterfaceCadastro.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="InterfaceCadastro.h">
+    <ClInclude Include="BancoDeDados.h">
       <Filter>Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

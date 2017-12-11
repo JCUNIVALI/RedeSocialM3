@@ -4,12 +4,12 @@
 #include "stdafx.h"
 #include <iostream>
 #include <string>
-#include "Cadastro.h"
+#include "BancoDeDados.h"
 using namespace std;
 
 int main()
 {
-	cadastrar();
+	BancoDeDados();
     return 0;
 }
 

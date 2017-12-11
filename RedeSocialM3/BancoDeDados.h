@@ -1,6 +1,5 @@
-#ifndef CADASTRO_H
-#define CADASTRO_H
-
+#ifndef BANCODEDADOS_H
+#define BANCODEDADOS_H
 #define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
@@ -58,7 +57,7 @@ struct ListaUsuario {
 			ElementoListaUsuario *atual = this->inicio;
 			while (atual != NULL){
 				if (atual->dado->UserName == username) {
-					erro = "Esse username já existe!";
+					erro = "!!!!!!!!!Esse username ja existe!!!!!!!!";
 					return false;
 				}
 				atual = atual->proximo;
@@ -237,21 +236,30 @@ string Genero(int selecao) {
 	}
 	return "Feminino";
 }
-void cadastrar() {
+void BancoDeDados() {
 	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")));
-	string erro="";
+	string erro=" ";
 	string username, senha, nome, data, genero;
-	username = UserName();
-	while (!lista->VerificarUsername(username, erro)) {
-		cout << erro;
-		username = UserName();
+	while (true) { //condição pra adicionar um novo Usuario//
+		do  {
+			if (erro!=" ")
+				cout << erro << endl;
+			username = UserName();
+		} while (!lista->VerificarUsername(username, erro));
+		erro = " ";
+		senha = SenhaCadastro();
+		getchar();
+		nome = NomeCadastro();
+		data = dataCadastro(erro);
+		if (erro != " ") {
+			setlocale(LC_ALL, "Portuguese");
+			cout << erro << endl;
+			break;
+		}
+		genero = Genero(SelecionarGenero());
+		lista->InserirElemento(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
 	}
-	senha = SenhaCadastro();
-	getchar();
-	nome=NomeCadastro();
-	data = dataCadastro(erro);
-	genero=Genero(SelecionarGenero());
-	cout << username << endl << senha << endl << nome << endl << data << endl<<genero<<endl;
+	
 }
 
 #endif

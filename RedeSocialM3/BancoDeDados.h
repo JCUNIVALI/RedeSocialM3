@@ -236,29 +236,45 @@ string Genero(int selecao) {
 	}
 	return "Feminino";
 }
-void BancoDeDados() {
-	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")));
-	string erro=" ";
+void CriarConta(ListaUsuario *lista) {
+	string erro = " ";
 	string username, senha, nome, data, genero;
 	while (true) { //condição pra adicionar um novo Usuario//
-		do  {
-			if (erro!=" ")
+		do {
+			if (erro != " ")
 				cout << erro << endl;
 			username = UserName();
+			if (username == "exit") {
+				break;
+			}
 		} while (!lista->VerificarUsername(username, erro));
+		if (username == "exit") {
+			return;
+		}
 		erro = " ";
 		senha = SenhaCadastro();
+		if (senha == "exit") {
+			return;
+		}
 		getchar();
 		nome = NomeCadastro();
+		if (nome == "exit") {
+			return;
+		}
 		data = dataCadastro(erro);
 		if (erro != " ") {
 			setlocale(LC_ALL, "Portuguese");
 			cout << erro << endl;
-			break;
+			return;
 		}
 		genero = Genero(SelecionarGenero());
 		lista->InserirElemento(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
 	}
+}
+void BancoDeDados() {
+	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")));
+	CriarConta(lista);
+	
 	
 }
 

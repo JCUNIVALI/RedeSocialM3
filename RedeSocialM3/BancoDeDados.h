@@ -95,8 +95,12 @@ string SenhaCadastro() {
 	do {
 		CadastrarSenha(1);
 		cin >> senha;
+		if (senha == "exit")
+			return senha;
 		CadastrarSenha(2);
 		cin >> temp;
+		if (temp == "exit")
+			return temp;
 		if (senha != temp) {
 			CadastrarSenha(3);
 		}
@@ -255,7 +259,7 @@ void CriarConta(ListaUsuario *lista) {
 		}
 		getchar();
 		nome = NomeCadastro();
-		if (nome == "exit") {
+		if (nome == "Exit") {
 			return;
 		}
 		data = dataCadastro(erro);

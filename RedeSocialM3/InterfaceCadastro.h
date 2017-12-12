@@ -6,19 +6,19 @@
 using namespace std;
 
 void CadastrarUserName() {
-	botao("Digite seu username", 0);
+	botao("Digite seu username");
 	cout << "@";
 }
 void CadastrarSenha(int etapa) {
 	if (etapa == 1)
-		botao("Defina uma senha ", 0);
+		botao("Defina uma senha ");
 	else if (etapa == 2)
-		botao("Confirme sua senha ", 0);
+		botao("Confirme sua senha ");
 	else
-		botao("Senhas nao conferem ", 0);
+		botao("Senhas nao conferem ");
 }
 void CadastrarNome() {
-	botao("Digite seu nome completo ", 0);
+	botao("Digite seu nome completo ");
 }
 int CadastrarAno() {
 	int selecao = 72;
@@ -35,13 +35,13 @@ int CadastrarAno() {
 		}
 		if (opcao == 0) {
 				system("cls");
-				botao("Escolha o seu ano de nascimento: ", 0);
-				botao(cont, 0);
+				botao("Escolha o seu ano de nascimento: ");
+				botao(cont);
 			}
 		if (opcao == 1) {
 				system("cls");
-				botao("Escolha o seu ano de nascimento: ", 0);
-				botao(cont, 0);
+				botao("Escolha o seu ano de nascimento: ");
+				botao(cont);
 			}
 		if (selecao == 13) {
 			system("cls");
@@ -69,13 +69,13 @@ int CadastrarDia(int dias) {
 			}
 			if (cont < 10) {
 				system("cls");
-				botao("Escolha o dia do seu nascimento.", 0);
-				botao(cont, 0);
+				botao("Escolha o dia do seu nascimento.");
+				botao(cont);
 			}
 			else if (cont > 9) {
 				system("cls");
-				botao("Escolha o dia do seu nascimento.", 0);
-				botao(cont, 0);
+				botao("Escolha o dia do seu nascimento.");
+				botao(cont);
 			}
 		}
 		if (opcao == 1) {
@@ -84,13 +84,13 @@ int CadastrarDia(int dias) {
 			}
 			if (cont < 10) {
 				system("cls");
-				botao("Escolha o dia do seu nascimento.", 0);
-				botao(cont, 0);
+				botao("Escolha o dia do seu nascimento.");
+				botao(cont);
 			}
 			else if (cont > 9) {
 				system("cls");
-				botao("Escolha o dia do seu nascimento.", 0);
-				botao(cont, 0);
+				botao("Escolha o dia do seu nascimento.");
+				botao(cont);
 			}
 		}
 		if (selecao == 13) {
@@ -119,63 +119,63 @@ int CadastrarMes() {
 			}
 			if (cont == 1) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Janeiro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Janeiro");
 			}
 			if (cont == 2) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Fevereiro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Fevereiro");
 			}
 			if (cont == 3) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Marco", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Marco");
 			}
 			if (cont == 4) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Abril", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Abril");
 			}
 			if (cont == 5) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Maio", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Maio");
 			}
 			if (cont == 6) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("junho", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("junho");
 			}
 			if (cont == 7) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Julho", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Julho");
 			}
 			if (cont == 8) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Agosto", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Agosto");
 			}
 			if (cont == 9) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Setembro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Setembro");
 			}
 			if (cont == 10) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Outubro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Outubro");
 			}
 			if (cont == 11) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Novembro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Novembro");
 			}
 			if (cont == 12) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Dezembro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Dezembro");
 			}
 		}
 		if (opcao == 1) {
@@ -184,63 +184,63 @@ int CadastrarMes() {
 			}
 			if (cont == 1) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Janeiro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Janeiro");
 			}
 			if (cont == 2) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Fevereiro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Fevereiro");
 			}
 			if (cont == 3) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Marco", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Marco");
 			}
 			if (cont == 4) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Abril", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Abril");
 			}
 			if (cont == 5) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Maio", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Maio");
 			}
 			if (cont == 6) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Junho", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Junho");
 			}
 			if (cont == 7) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Julho", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Julho");
 			}
 			if (cont == 8) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Agosto", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Agosto");
 			}
 			if (cont == 9) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Setembro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Setembro");
 			}
 			if (cont == 10) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Outubro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Outubro");
 			}
 			if (cont == 11) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Novembro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Novembro");
 			}
 			if (cont == 12) {
 				system("cls");
-				botao("Escolha seu mes de nascimento: ", 0);
-				botao("Dezembro", 0);
+				botao("Escolha seu mes de nascimento: ");
+				botao("Dezembro");
 			}
 		}
 		if (selecao == 13) {
@@ -262,14 +262,16 @@ int SelecionarGenero() {
 		}
 		if (opcao == 0) {
 			system("cls");
-			botao("Escolha seu genero: ", 0);
-			botao("Masculino", 0);
-
+			botao("Escolha seu genero: ");
+			botao("Masculino");
+			botao_2("Feminino");
 		}
 		if (opcao == 1) {
 			system("cls");
-			cout << "Escolha seu genero: " << endl;
-			cout << " Masculino" << endl << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Feminino" << "  \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC" << endl;
+			botao("Escolha seu genero: ");
+			botao_2("Masculino");
+			botao("Feminino");
+			
 		}
 		if (genero == 13) {
 			system("cls");

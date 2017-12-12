@@ -101,9 +101,8 @@ string SenhaCadastro() {
 		cin >> temp;
 		if (temp == "exit")
 			return temp;
-		if (senha != temp) {
+		if (senha != temp)
 			CadastrarSenha(3);
-		}
 	} while (senha != temp);
 	system("cls");
 	return senha;
@@ -113,18 +112,13 @@ string NomeCadastro() {
 	CadastrarNome();
 	getline(cin, nome);
 	for (int x = 0; x < nome.length(); x++) {
-		if (x == 0) {
-			if ((int)nome[x] >= 97 && (int)nome[x] <= 122) {
+		if (x == 0)
+			if ((int)nome[x] >= 97 && (int)nome[x] <= 122)
 				nome[x]=(int)nome[x] - 32;
-			}
-		}
-		if ((int)nome[x]==32) {
-			if (x + 1 < nome.length()) {
-				if ((int)nome[x + 1] >= 97 && (int)nome[x + 1] <= 122) {
+		if ((int)nome[x]==32)
+			if (x + 1 < nome.length())
+				if ((int)nome[x + 1] >= 97 && (int)nome[x + 1] <= 122)
 					nome[x+1] = (int)nome[x+1] - 32;
-				}
-			}
-		}
 	}
 	system("cls");
 	return nome;
@@ -150,9 +144,8 @@ string DataAtual() {
 	temp[6] = dataChar[6];
 	temp[7] = dataChar[7];
 	string data;
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < 8; i++)
 		data += temp[i];
-	}
 	return data;
 }
 void separarData(int &diaTemp, int &mesTemp, int &anoTemp) {
@@ -186,27 +179,21 @@ bool validaData(int dia,int mes,int &ano) {
 	meses[11] = 31;
 	int anosBissextos = 0;
 	for (int x = ano; x <= anoTool; x++) {
-		if (x % 4 == 0) {
+		if (x % 4 == 0)
 			anosBissextos++;
-		}
 	}
-	if (mes > 2 && ano % 4 == 0) {
+	if (mes > 2 && ano % 4 == 0)
 		anosBissextos--;
-	}
 	int diaCont = meses[mes - 1] -dia;
-	for (int x = mes; x < 12; x++) {
+	for (int x = mes; x < 12; x++)
 		diaCont += meses[x];
-	}
-	for (int x = ano + 1; x < anoTool; x++) {
+	for (int x = ano + 1; x < anoTool; x++)
 		diaCont += 365;
-	}
-	for (int x = 0; x < mesTool-1; x++) {
+	for (int x = 0; x < mesTool-1; x++)
 		diaCont += meses[x];
-	}
 	diaCont += diaTool+ anosBissextos;
-	if (diaCont >= 6576) {
+	if (diaCont >= 6576)
 		return true;
-	}
 	return false;
 }
 string dataCadastro(string &erro) {
@@ -220,34 +207,30 @@ string dataCadastro(string &erro) {
 		return "0";
 	if (mes == 2 && ano % 4 == 0) {
 		dia = CadastrarDia(29);
-		if (dia == -1) {
+		if (dia == -1)
 			return "0";
-		}
 	}
 	else if (mes == 2 && ano % 4 != 0) {
 		dia = CadastrarDia(28);
-		if (dia == -1) {
+		if (dia == -1)
 			return "0";
-		}
 	}
 	if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
 		dia = CadastrarDia(31);
-		if (dia == -1) {
+		if (dia == -1)
 			return "0";
-		}
 	}
 	else if(mes==4||mes==6||mes==9||mes==11) {
 		dia = CadastrarDia(30);
-		if (dia == -1) {
+		if (dia == -1)
 			return "0";
-		}
 	}
 	system("cls");
 	if (validaData(dia, mes, ano)) {
 		data = to_string(dia) + "/" + to_string(mes) + "/" + to_string(ano);
 		return data;
 	}
-	erro = "Você não tem a idade mínima para criar uma conta!";
+	erro = "Voce nao tem a idade minima para criar uma conta!";
 	return erro;
 }
 string Genero(int selecao) {
@@ -255,47 +238,38 @@ string Genero(int selecao) {
 		return "Masculino";
 	if (selecao==1)
 		return "Feminino";
-	else {
+	else 
 		return "exit";
-	}
 }
 void CriarConta(ListaUsuario *lista) {
 	string erro = " ";
 	string username, senha, nome, data, genero;
-	while (true) {
-		do {
-			if (erro != " ")
-				cout << erro << endl;
-			username = UserName();
-		} while (username=="exit" || !lista->VerificarUsername(username, erro) );
-		if (username == "@exit") {
-			return;
-		}
-		erro = " ";
-		senha = SenhaCadastro();
-		if (senha == "exit") {
-			return;
-		}
-		getchar();
-		nome = NomeCadastro();
-		if (nome == "Exit") {
-			return;
-		}
-		data = dataCadastro(erro);
-		if (data == "0") {
-			return;
-		}
-		if (erro != " ") {
-			setlocale(LC_ALL, "Portuguese");
+	do {
+		if (erro != " ")
 			cout << erro << endl;
-			return;
-		}
-		genero = Genero(SelecionarGenero());
-		if (genero == "exit") {
-			return;
-		}
-		lista->InserirElemento(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
+		username = UserName();
+	} while (username=="exit" || !lista->VerificarUsername(username, erro) );
+	if (username == "@exit")
+		return;
+	erro = " ";
+	senha = SenhaCadastro();
+	if (senha == "exit")
+		return;
+	getchar();
+	nome = NomeCadastro();
+	if (nome == "Exit")
+		return;
+	data = dataCadastro(erro);
+	if (data == "0")
+		return;
+	if (erro != " "){
+		botao_2(erro);
+		return;
 	}
+	genero = Genero(SelecionarGenero());
+	if (genero == "exit")
+		return;
+	lista->InserirElemento(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
 }
 void Unibook() {
 	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")));

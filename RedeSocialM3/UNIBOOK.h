@@ -25,22 +25,47 @@ struct Usuario {
 struct ElementoListaUsuario {
 	Usuario *dado;
 	ElementoListaUsuario *proximo;
-	ElementoListaUsuario(Usuario *umdado) {
-		this->dado = umdado;
+	ElementoListaUsuario(Usuario *umDado) {
+		this->dado = umDado;
+		this->proximo = NULL;
+	}
+};
+struct Post {
+	string post;
+	string usuario;
+	Post(string umPost, string umUsuario) {
+		this->post = umPost;
+		this->usuario = umUsuario;
+	}
+};
+struct ElementoListaPost {
+	Post *dado;
+	ElementoListaPost *proximo;
+	ElementoListaPost(Post *umDado){
+		this->dado = umDado;
 		this->proximo = NULL;
 	}
 };
 struct ListaUsuario {
 	ElementoListaUsuario *inicio;
+	ElementoListaPost *iniciopost;
 	ListaUsuario(ElementoListaUsuario *uminicio) {
 		this->inicio = uminicio;
 	}
-	void InserirElemento(ElementoListaUsuario *NovoUsuario) {
+	void MostrarDadosUsuarios() {
 		ElementoListaUsuario *atual = this->inicio;
-		if (atual == NULL) {
-			this->inicio = NovoUsuario;
-			return;
-		}
+		atual = atual->proximo;
+		do {
+			cout << "Username: " << atual->dado->UserName << endl;
+			cout << "Senha: "<<atual->dado->SenhaCadastro << endl;
+			cout << "Nome: "<<atual->dado->NomeUsuario << endl;
+			cout << "Data de nascimento; "<<atual->dado->DataNascimento << endl;
+			cout << "Genero: "<<atual->dado->Genero << endl;
+			atual = atual->proximo;
+		} while (atual!= NULL);
+	}
+	void InserirUsuario(ElementoListaUsuario *NovoUsuario) {
+		ElementoListaUsuario *atual = this->inicio;
 		do {
 			if (atual->proximo == NULL) {
 				atual->proximo = NovoUsuario;
@@ -50,9 +75,6 @@ struct ListaUsuario {
 		} while(atual != NULL);
 	}
 	bool VerificarUsername(string username, string &erro) {
-		if (this->inicio == NULL) {
-			return true;
-		}
 		if (this->inicio != NULL) {
 			ElementoListaUsuario *atual = this->inicio;
 			while (atual != NULL){
@@ -66,10 +88,7 @@ struct ListaUsuario {
 		}
 		return true;
 	}
-	bool RemoverUltimoElemento() {
-		if (this->inicio == NULL) {
-			return false;
-		}
+	bool RemoverUltimoUsuario() {
 		ElementoListaUsuario *atual = this->inicio;
 		while (atual->proximo != NULL) {
 			if (atual->proximo->proximo != NULL) {
@@ -79,8 +98,6 @@ struct ListaUsuario {
 			}
 			atual = atual->proximo;
 		}
-		delete this->inicio;
-		this->inicio = NULL;
 	}
 };
 string UserName() {
@@ -269,13 +286,13 @@ void CriarConta(ListaUsuario *lista) {
 	genero = Genero(SelecionarGenero());
 	if (genero == "exit")
 		return;
-	lista->InserirElemento(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
+	lista->InserirUsuario(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
 }
 void Unibook() {
 	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")));
 	
 	CriarConta(lista);
-	
+	lista->MostrarDadosUsuarios();
 	
 }
 

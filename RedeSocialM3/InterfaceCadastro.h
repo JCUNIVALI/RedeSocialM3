@@ -48,6 +48,10 @@ int CadastrarAno() {
 			return cont;
 		}
 		selecao = _getch();
+		if (selecao == 27) {
+			system("cls");
+			return -1;
+		}
 	}
 }
 int CadastrarDia(int dias) {
@@ -98,6 +102,10 @@ int CadastrarDia(int dias) {
 			return cont;
 		}
 		selecao = _getch();
+		if (selecao == 27) {
+			system("cls");
+			return -1;
+		}
 	}
 }
 int CadastrarMes() {
@@ -248,6 +256,10 @@ int CadastrarMes() {
 			return cont;
 		}
 		selecao = _getch();
+		if (selecao == 27) {
+			system("cls");
+			return -1;
+		}
 	}
 }
 int SelecionarGenero() {
@@ -278,6 +290,10 @@ int SelecionarGenero() {
 			return opcao;
 		}
 		genero = _getch();
+		if (genero == 27) {
+			system("cls");
+			return genero;
+		}
 	}
 }
 

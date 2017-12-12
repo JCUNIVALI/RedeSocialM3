@@ -213,18 +213,34 @@ string dataCadastro(string &erro) {
 	string data;
 	int dia, mes, ano;
 	ano = CadastrarAno();
+	if (ano == -1)
+		return "0";
 	mes = CadastrarMes();
+	if (mes == -1)
+		return "0";
 	if (mes == 2 && ano % 4 == 0) {
 		dia = CadastrarDia(29);
+		if (dia == -1) {
+			return "0";
+		}
 	}
 	else if (mes == 2 && ano % 4 != 0) {
 		dia = CadastrarDia(28);
+		if (dia == -1) {
+			return "0";
+		}
 	}
 	if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) {
 		dia = CadastrarDia(31);
+		if (dia == -1) {
+			return "0";
+		}
 	}
 	else if(mes==4||mes==6||mes==9||mes==11) {
 		dia = CadastrarDia(30);
+		if (dia == -1) {
+			return "0";
+		}
 	}
 	system("cls");
 	if (validaData(dia, mes, ano)) {
@@ -235,15 +251,18 @@ string dataCadastro(string &erro) {
 	return erro;
 }
 string Genero(int selecao) {
-	if (selecao == 0) {
+	if (selecao == 0)
 		return "Masculino";
+	if (selecao==1)
+		return "Feminino";
+	else {
+		return "exit";
 	}
-	return "Feminino";
 }
 void CriarConta(ListaUsuario *lista) {
 	string erro = " ";
 	string username, senha, nome, data, genero;
-	while (true) { //condição pra adicionar um novo Usuario//
+	while (true) {
 		do {
 			if (erro != " ")
 				cout << erro << endl;
@@ -263,17 +282,24 @@ void CriarConta(ListaUsuario *lista) {
 			return;
 		}
 		data = dataCadastro(erro);
+		if (data == "0") {
+			return;
+		}
 		if (erro != " ") {
 			setlocale(LC_ALL, "Portuguese");
 			cout << erro << endl;
 			return;
 		}
 		genero = Genero(SelecionarGenero());
+		if (genero == "exit") {
+			return;
+		}
 		lista->InserirElemento(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
 	}
 }
-void BancoDeDados() {
+void Unibook() {
 	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")));
+	
 	CriarConta(lista);
 	
 	

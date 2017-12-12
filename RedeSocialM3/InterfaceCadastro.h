@@ -2,23 +2,23 @@
 #define INTERFACECADASTRO_H
 #include <iostream>
 #include "conio.h"
-
+#include "Botao.h"
 using namespace std;
 
 void CadastrarUserName() {
-	cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Digite seu username " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC" << endl << "@";
+	botao("Digite seu username", 0);
+	cout << "@";
 }
 void CadastrarSenha(int etapa) {
 	if (etapa == 1)
-		cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Defina uma senha " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC" << endl;
-	else if (etapa==2)
-		cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Confirme sua senha" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC" << endl;
-	else 
-		cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Senhas nao conferem" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC" << endl;
-
+		botao("Defina uma senha ", 0);
+	else if (etapa == 2)
+		botao("Confirme sua senha ", 0);
+	else
+		botao("Senhas nao conferem ", 0);
 }
 void CadastrarNome() {
-	cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Digite seu nome completo" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC" << endl;
+	botao("Digite seu nome completo ", 0);
 }
 int CadastrarAno() {
 	int selecao = 72;
@@ -35,13 +35,13 @@ int CadastrarAno() {
 		}
 		if (opcao == 0) {
 				system("cls");
-				cout << "Escolha o seu ano de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha o seu ano de nascimento: ", 0);
+				botao(cont, 0);
 			}
 		if (opcao == 1) {
 				system("cls");
-				cout << "Escolha o seu ano de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha o seu ano de nascimento: ", 0);
+				botao(cont, 0);
 			}
 		if (selecao == 13) {
 			system("cls");
@@ -69,13 +69,13 @@ int CadastrarDia(int dias) {
 			}
 			if (cont < 10) {
 				system("cls");
-				cout << "Escolha o dia do seu nascimento." << endl;
-				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << "0"<<cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
+				botao("Escolha o dia do seu nascimento.", 0);
+				botao(cont, 0);
 			}
 			else if (cont > 9) {
 				system("cls");
-				cout << "Escolha o dia do seu nascimento." << endl; 
-				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
+				botao("Escolha o dia do seu nascimento.", 0);
+				botao(cont, 0);
 			}
 		}
 		if (opcao == 1) {
@@ -84,13 +84,13 @@ int CadastrarDia(int dias) {
 			}
 			if (cont < 10) {
 				system("cls");
-				cout << "Escolha o dia do seu nascimento." << endl;
-				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << "0"<<cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
+				botao("Escolha o dia do seu nascimento.", 0);
+				botao(cont, 0);
 			}
 			else if (cont > 9) {
 				system("cls");
-				cout << "Escolha o dia do seu nascimento." << endl;
-				cout << "\xC9\xCD\xCD\xCD\xBB" << endl << "\xBA" << cont << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xBC";
+				botao("Escolha o dia do seu nascimento.", 0);
+				botao(cont, 0);
 			}
 		}
 		if (selecao == 13) {
@@ -119,63 +119,63 @@ int CadastrarMes() {
 			}
 			if (cont == 1) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Janeiro "  << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Janeiro", 0);
 			}
 			if (cont == 2) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Fevereiro" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Fevereiro", 0);
 			}
 			if (cont == 3) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Marco  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Marco", 0);
 			}
 			if (cont == 4) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Abril  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Abril", 0);
 			}
 			if (cont == 5) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Maio   " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Maio", 0);
 			}
 			if (cont == 6) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Junho  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("junho", 0);
 			}
 			if (cont == 7) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Julho  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Julho", 0);
 			}
 			if (cont == 8) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Agosto  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Agosto", 0);
 			}
 			if (cont == 9) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Setemebro" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Setembro", 0);
 			}
 			if (cont == 10) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Outubro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Outubro", 0);
 			}
 			if (cont == 11) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Novembro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Novembro", 0);
 			}
 			if (cont == 12) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Dezembro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Dezembro", 0);
 			}
 		}
 		if (opcao == 1) {
@@ -184,63 +184,63 @@ int CadastrarMes() {
 			}
 			if (cont == 1) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Janeiro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Janeiro", 0);
 			}
 			if (cont == 2) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Fevereiro" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Fevereiro", 0);
 			}
 			if (cont == 3) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Marco  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Marco", 0);
 			}
 			if (cont == 4) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Abril  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Abril", 0);
 			}
 			if (cont == 5) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Maio   " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Maio", 0);
 			}
 			if (cont == 6) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Junho  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Junho", 0);
 			}
 			if (cont == 7) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "  Julho  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Julho", 0);
 			}
 			if (cont == 8) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Agosto  " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Agosto", 0);
 			}
 			if (cont == 9) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Setemebro" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Setembro", 0);
 			}
 			if (cont == 10) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << " Outubro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Outubro", 0);
 			}
 			if (cont == 11) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Novembro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Novembro", 0);
 			}
 			if (cont == 12) {
 				system("cls");
-				cout << "Escolha seu mes de nascimento: " << endl;
-				cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Dezembro " << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC";
+				botao("Escolha seu mes de nascimento: ", 0);
+				botao("Dezembro", 0);
 			}
 		}
 		if (selecao == 13) {
@@ -262,8 +262,9 @@ int SelecionarGenero() {
 		}
 		if (opcao == 0) {
 			system("cls");
-			cout << "Escolha seu genero: " << endl;
-			cout << "\xC9\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBB" << endl << "\xBA" << "Masculino" << " \xBA" << endl << "\xC8\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xCD\xBC" << endl << " Feminino";
+			botao("Escolha seu genero: ", 0);
+			botao("Masculino", 0);
+
 		}
 		if (opcao == 1) {
 			system("cls");

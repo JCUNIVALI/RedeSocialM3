@@ -49,10 +49,11 @@ struct ElementoListaPost {
 struct ListaUsuario {
 	ElementoListaUsuario *inicio;
 	ElementoListaPost *iniciopost;
-	ListaUsuario(ElementoListaUsuario *uminicio) {
+	ListaUsuario(ElementoListaUsuario *uminicio, ElementoListaPost *postInicial) {
 		this->inicio = uminicio;
+		this->iniciopost = postInicial;
 	}
-	void MostrarDadosUsuarios() {
+	void MostrarDadosUsuario() {
 		ElementoListaUsuario *atual = this->inicio;
 		atual = atual->proximo;
 		do {
@@ -63,6 +64,13 @@ struct ListaUsuario {
 			cout << "Genero: "<<atual->dado->Genero << endl;
 			atual = atual->proximo;
 		} while (atual!= NULL);
+	}void MostrarPostUsuario() {
+		ElementoListaPost *atual = this->iniciopost;
+		do {
+			cout << atual->dado->usuario << endl;
+			cout << "\t"<<atual->dado->post << endl;
+			atual = atual->proximo;
+		} while (atual != NULL);
 	}
 	void InserirUsuario(ElementoListaUsuario *NovoUsuario) {
 		ElementoListaUsuario *atual = this->inicio;
@@ -263,9 +271,9 @@ void CriarConta(ListaUsuario *lista) {
 	string username, senha, nome, data, genero;
 	do {
 		if (erro != " ")
-			cout << erro << endl;
+			botao_2(erro);
 		username = UserName();
-	} while (username=="exit" || !lista->VerificarUsername(username, erro) );
+	} while (username == "exit" || !lista->VerificarUsername(username, erro));
 	if (username == "@exit")
 		return;
 	erro = " ";
@@ -279,7 +287,7 @@ void CriarConta(ListaUsuario *lista) {
 	data = dataCadastro(erro);
 	if (data == "0")
 		return;
-	if (erro != " "){
+	if (erro != " ") {
 		botao_2(erro);
 		return;
 	}
@@ -287,12 +295,14 @@ void CriarConta(ListaUsuario *lista) {
 	if (genero == "exit")
 		return;
 	lista->InserirUsuario(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
+	
 }
 void Unibook() {
-	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")));
-	
+	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")),(new ElementoListaPost(new Post ("Bem Vindos ao UNIBOOK","@admin"))));
 	CriarConta(lista);
-	lista->MostrarDadosUsuarios();
+
+	lista->MostrarDadosUsuario();
+	lista->MostrarPostUsuario();
 	
 }
 

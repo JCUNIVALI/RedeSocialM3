@@ -335,7 +335,6 @@ void Unibook() {
 	bool sair = false;
 	opcaoMenu(lista,sair);
 	/*
-	CriarConta(lista); //criar uma nova conta
 
 	lista->MostrarDadosUsuario(); //mostrar dados dos usuarios cadastrados
 

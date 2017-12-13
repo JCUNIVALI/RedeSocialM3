@@ -64,11 +64,22 @@ struct ListaUsuario {
 			cout << "Genero: "<<atual->dado->Genero << endl;
 			atual = atual->proximo;
 		} while (atual!= NULL);
-	}void MostrarPostUsuario() {
+	}
+	void MostrarPostUsuario(ElementoListaPost *atual) {
+		if (atual->proximo != NULL) {
+			MostrarPostUsuario(atual->proximo);
+		}
+		cout << atual->dado->usuario << endl;
+		cout << "\t" << atual->dado->post << endl;
+		return;
+	}
+	void InserirPost(ElementoListaPost *novoPost) {
 		ElementoListaPost *atual = this->iniciopost;
 		do {
-			cout << atual->dado->usuario << endl;
-			cout << "\t"<<atual->dado->post << endl;
+			if (atual->proximo == NULL) {
+				atual->proximo = novoPost;
+				break;
+			}
 			atual = atual->proximo;
 		} while (atual != NULL);
 	}
@@ -106,6 +117,9 @@ struct ListaUsuario {
 			}
 			atual = atual->proximo;
 		}
+	}
+	void RemoverPost() {
+
 	}
 };
 string UserName() {
@@ -298,11 +312,20 @@ void CriarConta(ListaUsuario *lista) {
 	
 }
 void Unibook() {
-	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")),(new ElementoListaPost(new Post ("Bem Vindos ao UNIBOOK","@admin"))));
-	CriarConta(lista);
+	ElementoListaPost *elementoPostAdmin = new ElementoListaPost(new Post("Bem Vindos ao UNIBOOK", "@admin"));
+	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")),(elementoPostAdmin));
+	
+	
+	CriarConta(lista); //criar uma nova conta
 
-	lista->MostrarDadosUsuario();
-	lista->MostrarPostUsuario();
+	lista->MostrarDadosUsuario(); //mostrar dados dos usuarios cadastrados
+
+
+	lista->InserirPost(new ElementoListaPost(new Post("SO UM TEST","@jonathan"))); //inserir posts
+
+
+	lista->MostrarPostUsuario(elementoPostAdmin); //exibir posts recursivamente
+
 	
 }
 

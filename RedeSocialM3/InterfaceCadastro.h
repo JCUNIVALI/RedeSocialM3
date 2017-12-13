@@ -296,7 +296,53 @@ int SelecionarGenero() {
 		}
 	}
 }
-
+int Menu() {
+	int selecionado = 72;
+	int opcao = 0;
+	while (true) {
+		if (selecionado == 72)
+			if (opcao > 0)
+				opcao--;
+		if (selecionado == 80)
+			if (opcao<4)
+				opcao ++;
+		switch (opcao){
+			case 0:
+				system("cls");
+				botao("Entrar");
+				botao_2("Criar Usuario");
+				botao_2("Gerar Usuario");
+				botao_2("Fechar Programa");
+				break;
+			case 1:
+				system("cls");
+				botao_2("Entrar");
+				botao("Criar Usuario");
+				botao_2("Gerar Usuario");
+				botao_2("Fechar Programa");
+				break;
+			case 2:
+				system("cls");
+				botao_2("Entrar");
+				botao_2("Criar Usuario");
+				botao("Gerar Usuario");
+				botao_2("Fechar Programa");
+				break;
+			case 3:
+				system("cls");
+				botao_2("Entrar");
+				botao_2("Criar Usuario");
+				botao_2("Gerar Usuario");
+				botao("Fechar Programa");
+				break;
+		}
+		if (selecionado == 13) {
+			system("cls");
+			return opcao;
+		}
+		selecionado = _getch();
+	}
+}
 
 
 #endif

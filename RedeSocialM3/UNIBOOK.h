@@ -166,7 +166,6 @@ string DataAtual() {
 	char dataChar [9];
     char tempoChar [9];
 	_strdate(dataChar);
-    _strtime( tempoChar );
 	char mes[2];
 	char dia[2];
 	for (int x = 0; x < 2; x++) {
@@ -311,20 +310,39 @@ void CriarConta(ListaUsuario *lista) {
 	lista->InserirUsuario(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
 	
 }
+void opcaoMenu(ListaUsuario *lista, bool &sair) {
+	int opcao = Menu();
+	if (opcao == 0) {
+		/*LOGUIN*/
+	}
+	if (opcao == 1) {
+		CriarConta(lista);
+		opcaoMenu(lista,sair);
+		return;
+	}
+	if (opcao == 2) {
+		/*GERAR CONTAS FAKE*/
+		return;
+	}
+	if (opcao == 3) {
+		sair = true;
+		return;
+	}
+}
 void Unibook() {
 	ElementoListaPost *elementoPostAdmin = new ElementoListaPost(new Post("Bem Vindos ao UNIBOOK", "@admin"));
 	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")),(elementoPostAdmin));
-	
-	
+	bool sair = false;
+	opcaoMenu(lista,sair);
+	/*
 	CriarConta(lista); //criar uma nova conta
 
 	lista->MostrarDadosUsuario(); //mostrar dados dos usuarios cadastrados
 
-
 	lista->InserirPost(new ElementoListaPost(new Post("SO UM TEST","@jonathan"))); //inserir posts
 
-
 	lista->MostrarPostUsuario(elementoPostAdmin); //exibir posts recursivamente
+	*/
 
 	
 }

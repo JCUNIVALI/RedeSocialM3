@@ -164,7 +164,6 @@ string NomeCadastro() {
 }
 string DataAtual() {
 	char dataChar [9];
-    char tempoChar [9];
 	_strdate(dataChar);
 	char mes[2];
 	char dia[2];
@@ -310,14 +309,14 @@ void CriarConta(ListaUsuario *lista) {
 	lista->InserirUsuario(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
 	
 }
-void opcaoMenu(ListaUsuario *lista, bool &sair) {
+void opcaoMenu(ListaUsuario *lista, bool &sair, string &conta) {
 	int opcao = Menu();
 	if (opcao == 0) {
 		/*LOGUIN*/
 	}
 	if (opcao == 1) {
 		CriarConta(lista);
-		opcaoMenu(lista,sair);
+		opcaoMenu(lista,sair,conta);
 		return;
 	}
 	if (opcao == 2) {
@@ -333,7 +332,8 @@ void Unibook() {
 	ElementoListaPost *elementoPostAdmin = new ElementoListaPost(new Post("Bem Vindos ao UNIBOOK", "@admin"));
 	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")),(elementoPostAdmin));
 	bool sair = false;
-	opcaoMenu(lista,sair);
+	string logado = "";
+	opcaoMenu(lista,sair,logado);
 	/*
 
 	lista->MostrarDadosUsuario(); //mostrar dados dos usuarios cadastrados

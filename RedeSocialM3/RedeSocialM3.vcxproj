@@ -146,6 +146,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GERADORCONTA.h" />
     <ClInclude Include="UNIBOOK.h" />
     <ClInclude Include="Botao.h" />
     <ClInclude Include="InterfaceCadastro.h" />

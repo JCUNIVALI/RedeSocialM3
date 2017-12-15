@@ -343,6 +343,33 @@ int Menu() {
 		selecionado = _getch();
 	}
 }
-
+void telaLoguin(int passo) {
+	switch (passo)
+	{
+	case 0:
+		system("cls");
+		botao("Digite seu username ");
+		break;
+	case 1:
+		system("cls");
+		botao_2("Username nao cadastrado!");
+		botao("Digite seu username ");
+		break;
+	case 2:
+		system("cls");
+		botao("Digite sua senha");
+		break;
+	case 3:
+		system("cls");
+		botao_2("Senha incorreta");
+		botao("Por gentileza, digite sua senha");
+		break;
+	case 4:
+		system("cls");
+		botao_2("Voce esqueceu o @");
+		botao("Por gentileza, digite seu username");
+		break;
+	}
+}
 
 #endif

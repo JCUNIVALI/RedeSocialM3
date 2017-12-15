@@ -53,6 +53,18 @@ struct ListaUsuario {
 		this->inicio = uminicio;
 		this->iniciopost = postInicial;
 	}
+	bool verificaLoguin(string conta, string senha) {
+		ElementoListaUsuario *atual = this->inicio;
+		do {
+			if (atual->dado->UserName == conta) {
+				if (atual->dado->SenhaCadastro == senha) {
+					return true;
+				}
+			}
+			atual = atual->proximo;
+		} while (atual != NULL);
+		return false;
+	}
 	void MostrarDadosUsuario() {
 		ElementoListaUsuario *atual = this->inicio;
 		atual = atual->proximo;
@@ -309,10 +321,52 @@ void CriarConta(ListaUsuario *lista) {
 	lista->InserirUsuario(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
 	
 }
+string loguin(ListaUsuario *lista) {
+	string log, senha, erro;
+	telaLoguin(0);
+	cin >> log;
+	if (log == "@exit" || log == "exit")
+		return "exit";
+	do {
+		while (log[0] != '@') {
+			telaLoguin(4);
+			cin >> log;
+			if (log == "@exit" || log == "exit") 
+				return "exit";
+			if (lista->VerificarUsername(log, erro)) {
+				telaLoguin(1);
+				cin >> log;
+				if (log == "@exit" || log == "exit") 
+					return "exit";
+			}
+		}
+		if (lista->VerificarUsername(log, erro)) {
+			telaLoguin(1);
+			cin >> log;
+			if (log == "@exit" || log == "exit")
+				return "exit";
+		}
+	} while (lista->VerificarUsername(log, erro));
+	telaLoguin(2);
+	cin >> senha;
+	if (senha == "exit")
+		return "exit";
+	while (!lista->verificaLoguin(log, senha)) {
+		telaLoguin(3);
+		cin >> senha;
+		if (senha == "exit")
+			return "exit";
+	}
+	return log;
+
+}
 void opcaoMenu(ListaUsuario *lista, bool &sair, string &conta) {
 	int opcao = Menu();
 	if (opcao == 0) {
-		/*LOGUIN*/
+		conta=loguin(lista);
+		if (conta == "exit")
+			opcaoMenu(lista, sair, conta);
+		return;
 	}
 	if (opcao == 1) {
 		CriarConta(lista);

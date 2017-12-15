@@ -6,6 +6,7 @@
 #include <time.h>
 #include "InterfaceCadastro.h"
 #include "conio.h"
+#include "GERADORCONTA.h"
 
 using namespace std;
 struct Usuario {
@@ -374,7 +375,8 @@ void opcaoMenu(ListaUsuario *lista, bool &sair, string &conta) {
 		return;
 	}
 	if (opcao == 2) {
-		/*GERAR CONTAS FAKE*/
+		conta = "@batata";
+		GERADOR_DE_CONTA(lista);
 		return;
 	}
 	if (opcao == 3) {
@@ -388,14 +390,18 @@ void Unibook() {
 	bool sair = false;
 	string logado = "";
 	opcaoMenu(lista,sair,logado);
-	/*
+	cout << logado << endl;
+	
 
-	lista->MostrarDadosUsuario(); //mostrar dados dos usuarios cadastrados
+	//lista->MostrarDadosUsuario(); //mostrar dados dos usuarios cadastrados
 
-	lista->InserirPost(new ElementoListaPost(new Post("SO UM TEST","@jonathan"))); //inserir posts
+	cout << endl;
 
+	
+	
+	
 	lista->MostrarPostUsuario(elementoPostAdmin); //exibir posts recursivamente
-	*/
+	
 
 	
 }

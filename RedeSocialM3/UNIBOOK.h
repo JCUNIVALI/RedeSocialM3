@@ -390,14 +390,17 @@ void opcaoMenu(ListaUsuario *lista, bool &sair, string &conta) {
 string criarPost(string conta,ListaUsuario *lista) {
 	string texto ,user, erro;
 	telaNewPost(0);
+	bool valida = true;
 	do {
-		getline(cin, texto);
-		if (texto == "exit" || texto == "")
-			return "exit";
-		if (texto.length() > 280) {
-			telaNewPost(1);
-		}
-		for (int x = 0; x < texto.length(); x++) {
+		do {
+			getline(cin, texto);
+			if (texto == "exit" || texto == "")
+				return "exit";
+			if (texto.length() > 280) {
+				telaNewPost(1);
+			}
+		} while (texto.length() > 280);
+		for (int x = 0; x < texto.length(); x++) { //tem q ver isso ake
 			if (texto[x] == '@') {
 				int max;
 				for (int i = x; i < texto.length(); i++) {
@@ -410,10 +413,13 @@ string criarPost(string conta,ListaUsuario *lista) {
 				}
 				if (lista->VerificarUsername(user, erro)) {
 					telaNewPost(2);
+					valida = true;
 				}
+				else
+					valida = false;
 			}
 		}
-	} while (texto.length() > 280);
+	} while (!valida);
 	return texto;
 }
 void Unibook() {

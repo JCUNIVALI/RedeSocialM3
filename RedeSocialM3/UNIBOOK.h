@@ -82,8 +82,11 @@ struct ListaUsuario {
 		if (atual->proximo != NULL) {
 			MostrarPostUsuario(atual->proximo);
 		}
-		cout << atual->dado->usuario << endl;
+		cout << endl;
+		botao_2(atual->dado->usuario);
+		cout<< endl;
 		cout << "\t" << atual->dado->post << endl;
+		//botao_2(atual->dado->post);
 		return;
 	}
 	void InserirPost(ElementoListaPost *novoPost) {
@@ -375,7 +378,7 @@ void opcaoMenu(ListaUsuario *lista, bool &sair, string &conta) {
 		return;
 	}
 	if (opcao == 2) {
-		conta = "@batata";
+		conta = "@Prof_Andre";
 		GERADOR_DE_CONTA(lista);
 		return;
 	}
@@ -384,23 +387,64 @@ void opcaoMenu(ListaUsuario *lista, bool &sair, string &conta) {
 		return;
 	}
 }
+string criarPost(string conta,ListaUsuario *lista) {
+	string texto ,user, erro;
+	telaNewPost(0);
+	do {
+		getline(cin, texto);
+		if (texto == "exit" || texto == "")
+			return "exit";
+		if (texto.length() > 280) {
+			telaNewPost(1);
+		}
+		for (int x = 0; x < texto.length(); x++) {
+			if (texto[x] == '@') {
+				int max;
+				for (int i = x; i < texto.length(); i++) {
+					if (texto[i] == ' ') {
+						max = i;
+					}
+				}
+				for (int y = x; y < max; y++) {
+					user += texto[y];
+				}
+				if (lista->VerificarUsername(user, erro)) {
+					telaNewPost(2);
+				}
+			}
+		}
+	} while (texto.length() > 280);
+	return texto;
+}
 void Unibook() {
 	ElementoListaPost *elementoPostAdmin = new ElementoListaPost(new Post("Bem Vindos ao UNIBOOK", "@admin"));
 	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")),(elementoPostAdmin));
 	bool sair = false;
 	string logado = "";
 	opcaoMenu(lista,sair,logado);
-	cout << logado << endl;
 	
+	int atual=0, anterior=0;
+	while (!sair) {
+		system("cls");
+		botao("LOGADO: " + logado);
+		botao_2("Precione Enter para criar um post");
+		lista->MostrarPostUsuario(elementoPostAdmin);
+		atual = _getch();
+		if (atual == 13) {
+			string temp=criarPost(logado,lista);
+			if (temp != "exit")
+				lista->InserirPost(new ElementoListaPost(new Post(temp, logado)));
+		}
+		if (atual == 27) {
+			opcaoMenu(lista, sair, logado);
+		}
 
-	//lista->MostrarDadosUsuario(); //mostrar dados dos usuarios cadastrados
-
-	cout << endl;
+	}
 
 	
 	
 	
-	lista->MostrarPostUsuario(elementoPostAdmin); //exibir posts recursivamente
+	
 	
 
 	

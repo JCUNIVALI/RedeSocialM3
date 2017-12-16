@@ -371,5 +371,24 @@ void telaLoguin(int passo) {
 		break;
 	}
 }
-
+void telaNewPost(int passo) {
+	switch (passo)
+	{
+	case 0:
+		system("cls");
+		botao_2("Digite seu texto: ");
+		break;
+	case 1:
+		system("cls");
+		botao_2("O Post deve conter no maximo 280 caracteres!");
+		botao_2("Digite seu texto: ");
+		break;
+	case 2:
+		system("cls");
+		botao_2("O @username informado nao existe, verifique se esta escrito corretamente!");
+		break;
+	default:
+		break;
+	}
+}
 #endif

@@ -6,37 +6,45 @@
 using namespace std;
 
 void CadastrarUserName() {
+	botao_2("Para sair digite somente exit");
 	botao("Digite seu username");
 	cout << "@";
 }
 void CadastrarSenha(int etapa) {
-	if (etapa == 1)
+	if (etapa == 1) {
+		botao_2("Para sair digite somente exit");
 		botao("Defina uma senha ");
+	}
 	else if (etapa == 2)
 		botao("Confirme sua senha ");
-	else
+	else {
+		system("cls");
 		botao("Senhas nao conferem ");
+	}
 }
 void CadastrarNome() {
+	botao_2("Para sair digite somente exit");
 	botao("Digite seu nome completo ");
 }
 int CadastrarAno() {
-	int selecao = 72;
+	int selecao = 77;
 	int cont = 1998;
 	int opcao = 0;
 	while (true) {
 		system("cls");
+		botao_2("Para sair pressione Esc");
 		botao("Escolha o seu ano de nascimento: ");
-		if (selecao == 72) {
+		cout << "\xAE\t\xAF" << endl;
+		if (selecao == 77) {
 			opcao = 0;
 			cont++;
 		}
-		if (selecao == 80) {
+		if (selecao == 75) {
 			opcao = 1;
 			cont--;
 		}
 		if (opcao == 0) {
-				botao(cont);
+			botao(cont);
 			}
 		if (opcao == 1) {
 				botao(cont);
@@ -53,17 +61,19 @@ int CadastrarAno() {
 	}
 }
 int CadastrarDia(int dias) {
-	int selecao = 72;
+	int selecao = 77;
 	int cont = 0;
 	int opcao = 0;
 	while (true) {
 		system("cls");
+		botao_2("Para sair pressione Esc");
 		botao("Escolha o dia do seu nascimento: ");
-		if (selecao == 72) {
+		cout << "\xAE\t\xAF" << endl;
+		if (selecao == 77) {
 			opcao = 0;
 			cont++;
 		}
-		if (selecao == 80) {
+		if (selecao == 75) {
 			opcao = 1;
 			cont--;
 		}
@@ -101,17 +111,19 @@ int CadastrarDia(int dias) {
 	}
 }
 int CadastrarMes() {
-	int selecao = 72;
+	int selecao = 77;
 	int cont = 0;
 	int opcao = 0;
 	while (true) {
 		system("cls");
+		botao_2("Para sair pressione Esc");
 		botao("Escolha seu mes de nascimento: ");
-		if (selecao == 72) {
+		cout << "\xAE\t\xAF" << endl;
+		if (selecao == 77) {
 			opcao = 0;
 			cont++;
 		}
-		if (selecao == 80) {
+		if (selecao == 75) {
 			opcao = 1;
 			cont--;
 		}
@@ -213,6 +225,7 @@ int SelecionarGenero() {
 	int opcao = 0;
 	while (true) {
 		system("cls");
+		botao_2("Para sair pressione Esc");
 		botao("Escolha seu genero: ");
 		if (genero == 72) {
 			opcao = 0;
@@ -292,24 +305,29 @@ void telaLoguin(int passo) {
 	{
 	case 0:
 		system("cls");
+		botao_2("Para sair digite somente exit");
 		botao("Digite seu username ");
 		break;
 	case 1:
 		system("cls");
+		botao_2("Para sair digite somente exit");
 		botao_2("Username nao cadastrado!");
 		botao("Digite seu username ");
 		break;
 	case 2:
 		system("cls");
+		botao_2("Para sair digite somente exit");
 		botao("Digite sua senha");
 		break;
 	case 3:
 		system("cls");
+		botao_2("Para sair digite somente exit");
 		botao_2("Senha incorreta");
 		botao("Por gentileza, digite sua senha");
 		break;
 	case 4:
 		system("cls");
+		botao_2("Para sair digite somente exit");
 		botao_2("Voce esqueceu o @");
 		botao("Por gentileza, digite seu username");
 		break;
@@ -320,15 +338,18 @@ void telaNewPost(int passo) {
 	{
 	case 0:
 		system("cls");
+		botao_2("Para sair digite somente exit");
 		botao_2("Digite seu texto: ");
 		break;
 	case 1:
 		system("cls");
+		botao_2("Para sair digite somente exit");
 		botao_2("O Post deve conter no maximo 280 caracteres!");
 		botao_2("Digite seu texto: ");
 		break;
 	case 2:
 		system("cls");
+		botao_2("Para sair digite somente exit");
 		botao_2("O @username informado nao existe, verifique se esta escrito corretamente!");
 		break;
 	default:
@@ -337,6 +358,7 @@ void telaNewPost(int passo) {
 }
 void telaExcluirPost() {
 	system("cls");
+	botao_2("Para sair pressione ESC");
 	botao("Selecione o Post a ser excluido");
 }
 void timeLine(string logado) {
@@ -345,5 +367,7 @@ void timeLine(string logado) {
 	botao_2("Enter Novo Post");
 	botao_2("'x' deletar Post");
 	botao_2("Esc Sair");
+	cout << endl << endl;
+	botao_2("____________________________________UNIBOOK______TIMELINE_____________________________________________________");
 }
 #endif

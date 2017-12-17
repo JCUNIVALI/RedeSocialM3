@@ -324,6 +324,7 @@ void telaExcluirPost() {
 	system("cls");
 	botao_2("Para sair pressione ESC");
 	botao("Selecione o Post a ser excluido");
+	cout << "\t\xAE\t\xAF" << endl;
 }
 void timeLine(string logado) {
 	system("cls");

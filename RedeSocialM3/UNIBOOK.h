@@ -440,14 +440,14 @@ string criarPost(string conta,ListaUsuario *lista) {
 	return texto;
 }
 void excluirPost(string user,ListaUsuario *lista) {
-	int post = 72;
+	int post = 75;
 	int opcao = 0;
 	while (true) {
 		telaExcluirPost();
-		if (post == 72)
+		if (post == 75)
 			if (opcao>0)
 				opcao --;
-		if (post == 80)
+		if (post == 77)
 			opcao ++;
 		lista->ExcluirPostUsuario(user, opcao,false);
 		post = _getch();

@@ -21,20 +21,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_371A477561911E03D093FECC0D7B076B"
-        "OwnerKey" = "8:_3399B2EFE7E4464FAF3157F2BB395455"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_905FD279F035B2E7120691AE44CB5431"
-        "OwnerKey" = "8:_3399B2EFE7E4464FAF3157F2BB395455"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F85F313FE263EB31E250B356BD5B1C53"
-        "OwnerKey" = "8:_3399B2EFE7E4464FAF3157F2BB395455"
+        "MsmKey" = "8:_D0A9068A4D4643A39CCB90FF41B266E2"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -55,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -71,6 +67,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -92,12 +96,12 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_371A477561911E03D093FECC0D7B076B"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D0A9068A4D4643A39CCB90FF41B266E2"
             {
-            "SourcePath" = "8:VCRUNTIME140D.dll"
-            "TargetName" = "8:VCRUNTIME140D.dll"
+            "SourcePath" = "8:..\\..\\..\\..\\..\\Desktop\\U.ico"
+            "TargetName" = "8:U.ico"
             "Tag" = "8:"
-            "Folder" = "8:_0C0C19DBBDF44FB19B5E6EF802F7C70C"
+            "Folder" = "8:_9C0AB11D318E40DC9C76961E48B2D93D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -109,47 +113,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_905FD279F035B2E7120691AE44CB5431"
-            {
-            "SourcePath" = "8:ucrtbased.dll"
-            "TargetName" = "8:ucrtbased.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_0C0C19DBBDF44FB19B5E6EF802F7C70C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F85F313FE263EB31E250B356BD5B1C53"
-            {
-            "SourcePath" = "8:MSVCP140D.dll"
-            "TargetName" = "8:MSVCP140D.dll"
-            "Tag" = "8:"
-            "Folder" = "8:_0C0C19DBBDF44FB19B5E6EF802F7C70C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -199,6 +163,18 @@
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:DesktopFolder"
+                "Folders"
+                {
+                }
+            }
+            "{994432C3-9487-495D-8656-3E829A8DBDDE}:_9C0AB11D318E40DC9C76961E48B2D93D"
+            {
+            "DefaultLocation" = "8:[TARGETDIR]"
+            "Name" = "8:Custom Folder #1"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:NEWPROPERTY1"
                 "Folders"
                 {
                 }
@@ -351,7 +327,7 @@
             "Target" = "8:_3399B2EFE7E4464FAF3157F2BB395455"
             "Folder" = "8:_5C458614293A4FFCA1559A3869B8D909"
             "WorkingFolder" = "8:_0C0C19DBBDF44FB19B5E6EF802F7C70C"
-            "Icon" = "8:"
+            "Icon" = "8:_D0A9068A4D4643A39CCB90FF41B266E2"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EC3C3B549C2A429083AD47810A441B3E"
@@ -365,7 +341,7 @@
             "Target" = "8:_3399B2EFE7E4464FAF3157F2BB395455"
             "Folder" = "8:_EA7AB50714DE43A383E4269CA4CF89D3"
             "WorkingFolder" = "8:_0C0C19DBBDF44FB19B5E6EF802F7C70C"
-            "Icon" = "8:"
+            "Icon" = "8:_D0A9068A4D4643A39CCB90FF41B266E2"
             "Feature" = "8:"
             }
         }

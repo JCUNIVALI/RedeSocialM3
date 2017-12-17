@@ -50,6 +50,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
         "Release"
@@ -196,7 +204,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:UNIBOOK"
         "ProductCode" = "8:{24669CD9-8F3F-4B7E-B4BF-07961B31CC1D}"
-        "PackageCode" = "8:{9F6C0BAE-05A4-4537-80CC-FAE4A2EA1E80}"
+        "PackageCode" = "8:{B88542B4-06BB-4B8D-928E-BEDA9625B081}"
         "UpgradeCode" = "8:{0B0DA064-54AE-418C-9E29-4CC628A626EF}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

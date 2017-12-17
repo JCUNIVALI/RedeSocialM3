@@ -391,4 +391,15 @@ void telaNewPost(int passo) {
 		break;
 	}
 }
+void telaExcluirPost() {
+	system("cls");
+	botao("Selecione o Post a ser excluido");
+}
+void timeLine(string logado) {
+	system("cls");
+	botao("LOGADO: " + logado);
+	botao_2("Enter Novo Post");
+	botao_2("'x' deletar Post");
+	botao_2("Esc Sair");
+}
 #endif

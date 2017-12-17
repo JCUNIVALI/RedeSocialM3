@@ -134,6 +134,30 @@ struct ListaUsuario {
 			atual = atual->proximo;
 		}
 	}
+	void ExibirPostUsuario(string user,int &post) {
+		ElementoListaPost *atual = this->iniciopost;
+		ElementoListaPost *contador = this->iniciopost;
+		int cont = 0, max = 0;
+		do {
+			if (contador->dado->usuario == user) {
+				max++;
+			}
+			contador = contador->proximo;
+		} while (contador != NULL);
+		do {
+			if (atual->dado->usuario == user) {
+				if (post == cont) {
+					cout << "\t" << atual->dado->post << endl;
+					break;
+				}
+				if (post >= max) {
+					post = max-1;
+				}
+				cont++;
+			}
+			atual = atual->proximo;
+		} while (atual != NULL);
+	}
 	void RemoverPost() {
 
 	}
@@ -364,22 +388,24 @@ string loguin(ListaUsuario *lista) {
 	return log;
 
 }
-void opcaoMenu(ListaUsuario *lista, bool &sair, string &conta) {
+void opcaoMenu(ListaUsuario *lista, bool &sair, string &conta,int &gerarconta) {
 	int opcao = Menu();
 	if (opcao == 0) {
 		conta=loguin(lista);
 		if (conta == "exit")
-			opcaoMenu(lista, sair, conta);
+			opcaoMenu(lista, sair, conta,gerarconta);
 		return;
 	}
 	if (opcao == 1) {
 		CriarConta(lista);
-		opcaoMenu(lista,sair,conta);
+		opcaoMenu(lista,sair,conta,gerarconta);
 		return;
 	}
 	if (opcao == 2) {
 		conta = "@Prof_Andre";
-		GERADOR_DE_CONTA(lista);
+		if (gerarconta==0)
+			GERADOR_DE_CONTA(lista);
+		gerarconta++;
 		return;
 	}
 	if (opcao == 3) {
@@ -400,7 +426,7 @@ string criarPost(string conta,ListaUsuario *lista) {
 				telaNewPost(1);
 			}
 		} while (texto.length() > 280);
-		for (int x = 0; x < texto.length(); x++) { //tem q ver isso ake
+		for (int x = 0; x < texto.length(); x++) { 
 			if (texto[x] == '@') {
 				int max=0;
 				string user, erro;
@@ -419,14 +445,36 @@ string criarPost(string conta,ListaUsuario *lista) {
 				}
 				if (lista->VerificarUsername(user, erro)) {
 					telaNewPost(2);
-					valida = true;
+					valida = false;
 				}
 				else
-					valida = false;
+					valida = true;
 			}
 		}
-	} while (valida);
+	} while (!valida);
 	return texto;
+}
+void excluirPost(string user,ListaUsuario *lista) {
+	int post = 72;
+	int opcao = 0;
+	while (true) {
+		telaExcluirPost();
+		if (post == 72) {
+			if (opcao>0)
+				opcao --;
+		}
+		if (post == 80) {
+			opcao ++;
+		}
+		lista->ExibirPostUsuario(user, opcao);
+		post = _getch();
+		if (post == 13) { //excluir post selecionado
+
+		}
+		if (post == 27) { //cancelar e voltar pra timeline
+
+		}
+	}
 }
 void Unibook() {
 	Usuario *admin = new Usuario("@admin", " ", "Administrador", " ", " ");
@@ -435,14 +483,11 @@ void Unibook() {
 	
 	bool sair = false;
 	string logado = "";
-	opcaoMenu(lista,sair,logado);
+	int gerarconta = 0;
+	opcaoMenu(lista,sair,logado,gerarconta);
 	int atual = 0;
 	while (!sair) {
-		system("cls");
-		botao("LOGADO: " + logado);
-		botao_2("Enter Novo Post");
-		botao_2("Del deletar Post");
-		botao_2("Esc Sair");
+		timeLine(logado);
 		lista->MostrarPostUsuario(elementoPostAdmin);
 		atual = _getch();
 		if (atual == 13) {
@@ -451,7 +496,10 @@ void Unibook() {
 				lista->InserirPost(new ElementoListaPost(new Post(temp, logado)));
 		}
 		if (atual == 27) {
-			opcaoMenu(lista, sair, logado);
+			opcaoMenu(lista, sair, logado,gerarconta);
+		}
+		if (atual == 'x') {
+			excluirPost(logado, lista);
 		}
 	}
 

@@ -9,11 +9,12 @@ using namespace std;
 
 int main()
 {	
-	/*int x;
-	while (true) {
+	int x, i;
+	while (!true) {
 		x = _getch();
-		cout << x;
-	}*/
+		i = _getch();
+		cout << x << "\t" << i;
+	}
 	Unibook();
     return 0;
 }

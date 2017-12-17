@@ -21,6 +21,7 @@ void GERADOR_DE_CONTA(T *lista) {
 	lista->InserirUsuario(new ElementoListaUsuario(new Usuario("@Rachel_Sheherazade", " ", "Rachel Sheherazade", " ", "Feminino")));
 	lista->InserirUsuario(new ElementoListaUsuario(new Usuario("@Aecio_Neves", " ", "Aecio Neves", " ", "Masculino")));
 	lista->InserirUsuario(new ElementoListaUsuario(new Usuario("@Pabllo_Vittar", " ", "Pabllo Vittar", " ", "Outros")));
+	lista->InserirUsuario(new ElementoListaUsuario(new Usuario("@Prof_Andre", "123", "Andre M Santana", " ", "Masculino")));
 }
 
 #endif

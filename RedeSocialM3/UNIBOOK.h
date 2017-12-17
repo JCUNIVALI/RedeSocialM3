@@ -409,9 +409,8 @@ string criarPost(string conta,ListaUsuario *lista) {
 			getline(cin, texto);
 			if (texto == "exit" || texto == "")
 				return "exit";
-			if (texto.length() > 280) {
+			if (texto.length() > 280)
 				telaNewPost(1);
-			}
 		} while (texto.length() > 280);
 		for (int x = 0; x < texto.length(); x++) { 
 			if (texto[x] == '@') {
@@ -427,9 +426,8 @@ string criarPost(string conta,ListaUsuario *lista) {
 					}
 					i++;
 				} while (max == 0);
-				for (int y = x; y < max; y++) {
+				for (int y = x; y < max; y++)
 					user += texto[y];
-				}
 				if (lista->VerificarUsername(user, erro)) {
 					telaNewPost(2);
 					valida = false;
@@ -446,22 +444,19 @@ void excluirPost(string user,ListaUsuario *lista) {
 	int opcao = 0;
 	while (true) {
 		telaExcluirPost();
-		if (post == 72) {
+		if (post == 72)
 			if (opcao>0)
 				opcao --;
-		}
-		if (post == 80) {
+		if (post == 80)
 			opcao ++;
-		}
 		lista->ExcluirPostUsuario(user, opcao,false);
 		post = _getch();
 		if (post == 13) {
 			lista->ExcluirPostUsuario(user, opcao, true);
 			return;
 		}
-		if (post == 27) {
+		if (post == 27)
 			return;
-		}
 	}
 }
 void Unibook() {
@@ -483,12 +478,10 @@ void Unibook() {
 			if (temp != "exit")
 				lista->InserirPost(new ElementoListaPost(new Post(temp, logado)));
 		}
-		if (atual == 27) {
+		if (atual == 27)
 			opcaoMenu(lista, sair, logado,gerarconta);
-		}
-		if (atual == 'x') {
+		if (atual == 'x')
 			excluirPost(logado, lista);
-		}
 	}
 
 	

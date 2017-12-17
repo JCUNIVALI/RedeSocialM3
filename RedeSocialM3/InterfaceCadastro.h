@@ -43,12 +43,10 @@ int CadastrarAno() {
 			opcao = 1;
 			cont--;
 		}
-		if (opcao == 0) {
+		if (opcao == 0)
 			botao(cont);
-			}
-		if (opcao == 1) {
+		if (opcao == 1)
 				botao(cont);
-			}
 		if (selecao == 13) {
 			system("cls");
 			return cont;
@@ -78,26 +76,20 @@ int CadastrarDia(int dias) {
 			cont--;
 		}
 		if (opcao == 0) {
-			if (cont > dias) {
+			if (cont > dias)
 				cont = dias;
-			}
-			if (cont < 10) {
+			if (cont < 10)
 				botao(cont);
-			}
-			else if (cont > 9) {
+			else if (cont > 9)
 				botao(cont);
-			}
 		}
 		if (opcao == 1) {
-			if (cont < 1) {
+			if (cont < 1)
 				cont = 1;
-			}
-			if (cont < 10) {
+			if (cont < 10)
 				botao(cont);
-			}
-			else if (cont > 9) {
+			else if (cont > 9)
 				botao(cont);
-			}
 		}
 		if (selecao == 13) {
 			system("cls");
@@ -128,86 +120,60 @@ int CadastrarMes() {
 			cont--;
 		}
 		if (opcao == 0) {
-			if (cont > 12) {
+			if (cont > 12)
 				cont = 12;
-			}
-			if (cont == 1) {
+			if (cont == 1)
 				botao("Janeiro");
-			}
-			if (cont == 2) {
+			if (cont == 2)
 				botao("Fevereiro");
-			}
-			if (cont == 3) {
+			if (cont == 3)
 				botao("Marco");
-			}
-			if (cont == 4) {
+			if (cont == 4)
 				botao("Abril");
-			}
-			if (cont == 5) {
+			if (cont == 5)
 				botao("Maio");
-			}
-			if (cont == 6) {
+			if (cont == 6)
 				botao("Junho");
-			}
-			if (cont == 7) {
+			if (cont == 7)
 				botao("Julho");
-			}
-			if (cont == 8) {
+			if (cont == 8)
 				botao("Agosto");
-			}
-			if (cont == 9) {
+			if (cont == 9)
 				botao("Setembro");
-			}
-			if (cont == 10) {
+			if (cont == 10)
 				botao("Outubro");
-			}
-			if (cont == 11) {
+			if (cont == 11)
 				botao("Novembro");
-			}
-			if (cont == 12) {
+			if (cont == 12)
 				botao("Dezembro");
-			}
 		}
 		if (opcao == 1) {
-			if (cont < 1) {
+			if (cont < 1)
 				cont = 1;
-			}
-			if (cont == 1) {
+			if (cont == 1)
 				botao("Janeiro");
-			}
-			if (cont == 2) {
+			if (cont == 2)
 				botao("Fevereiro");
-			}
-			if (cont == 3) {
+			if (cont == 3)
 				botao("Marco");
-			}
-			if (cont == 4) {
+			if (cont == 4)
 				botao("Abril");
-			}
-			if (cont == 5) {
+			if (cont == 5)
 				botao("Maio");
-			}
-			if (cont == 6) {
+			if (cont == 6)
 				botao("Junho");
-			}
-			if (cont == 7) {
+			if (cont == 7)
 				botao("Julho");
-			}
-			if (cont == 8) {
+			if (cont == 8)
 				botao("Agosto");
-			}
-			if (cont == 9) {
+			if (cont == 9)
 				botao("Setembro");
-			}
-			if (cont == 10) {
+			if (cont == 10)
 				botao("Outubro");
-			}
-			if (cont == 11) {
+			if (cont == 11)
 				botao("Novembro");
-			}
-			if (cont == 12) {
+			if (cont == 12)
 				botao("Dezembro");
-			}
 		}
 		if (selecao == 13) {
 			system("cls");
@@ -227,12 +193,10 @@ int SelecionarGenero() {
 		system("cls");
 		botao_2("Para sair pressione Esc");
 		botao("Escolha seu genero: ");
-		if (genero == 72) {
+		if (genero == 72)
 			opcao = 0;
-		}
-		if (genero == 80) {
+		if (genero == 80)
 			opcao = 1;
-		}
 		if (opcao == 0) {
 			botao("Masculino");
 			botao_2("Feminino");
@@ -368,6 +332,13 @@ void timeLine(string logado) {
 	botao_2("'x' deletar Post");
 	botao_2("Esc Sair");
 	cout << endl << endl;
-	botao_2("____________________________________UNIBOOK______TIMELINE_____________________________________________________");
+	string data, tempo;
+	char dataemchar[9];
+	char tempoemchar[9];
+	_strtime(tempoemchar);
+	_strdate(dataemchar);
+	tempo = tempoemchar;
+	data = dataemchar;
+	botao_2("__UNIBOOK______TIMELINE_______________________________Ultima atualizacao feita as "+tempo+"______" + data + "___");
 }
 #endif

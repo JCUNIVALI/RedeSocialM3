@@ -66,18 +66,6 @@ struct ListaUsuario {
 		} while (atual != NULL);
 		return false;
 	}
-	void MostrarDadosUsuario() {
-		ElementoListaUsuario *atual = this->inicio;
-		atual = atual->proximo;
-		do {
-			cout << "Username: " << atual->dado->UserName << endl;
-			cout << "Senha: "<<atual->dado->SenhaCadastro << endl;
-			cout << "Nome: "<<atual->dado->NomeUsuario << endl;
-			cout << "Data de nascimento; "<<atual->dado->DataNascimento << endl;
-			cout << "Genero: "<<atual->dado->Genero << endl;
-			atual = atual->proximo;
-		} while (atual!= NULL);
-	}
 	void MostrarPostUsuario(ElementoListaPost *atual) {
 		if (atual->proximo != NULL) {
 			MostrarPostUsuario(atual->proximo);
@@ -86,7 +74,6 @@ struct ListaUsuario {
 		botao_2(atual->dado->usuario);
 		cout<< endl;
 		cout << "\t" << atual->dado->post << endl;
-		//botao_2(atual->dado->post);
 		return;
 	}
 	void InserirPost(ElementoListaPost *novoPost) {
@@ -123,18 +110,7 @@ struct ListaUsuario {
 		}
 		return true;
 	}
-	bool RemoverUltimoUsuario() {
-		ElementoListaUsuario *atual = this->inicio;
-		while (atual->proximo != NULL) {
-			if (atual->proximo->proximo != NULL) {
-				delete atual->proximo;
-				atual->proximo = NULL;
-				return true;
-			}
-			atual = atual->proximo;
-		}
-	}
-	void ExibirPostUsuario(string user,int &post) {
+	void ExcluirPostUsuario(string user,int &post,bool confirmacao) {
 		ElementoListaPost *atual = this->iniciopost;
 		ElementoListaPost *contador = this->iniciopost;
 		int cont = 0, max = 0;
@@ -144,22 +120,33 @@ struct ListaUsuario {
 			}
 			contador = contador->proximo;
 		} while (contador != NULL);
+		contador = this->iniciopost;
 		do {
 			if (atual->dado->usuario == user) {
 				if (post == cont) {
-					cout << "\t" << atual->dado->post << endl;
-					break;
+					if (!confirmacao) {
+						cout << "\t" << atual->dado->post << endl;
+						return;
+					}
+					if (confirmacao) {
+						if (atual->proximo != NULL) {
+							contador->proximo = atual->proximo;
+							delete atual;
+							return;
+						}
+						contador->proximo = NULL;
+						delete atual;
+						return;
+					}
 				}
 				if (post >= max) {
 					post = max-1;
 				}
 				cont++;
 			}
+			contador = atual;
 			atual = atual->proximo;
 		} while (atual != NULL);
-	}
-	void RemoverPost() {
-
 	}
 };
 string UserName() {
@@ -325,7 +312,7 @@ void CriarConta(ListaUsuario *lista) {
 		if (erro != " ")
 			botao_2(erro);
 		username = UserName();
-	} while (username != "exit" || !lista->VerificarUsername(username, erro));
+	} while (!lista->VerificarUsername(username, erro));
 	if (username == "@exit")
 		return;
 	erro = " ";
@@ -347,7 +334,6 @@ void CriarConta(ListaUsuario *lista) {
 	if (genero == "exit")
 		return;
 	lista->InserirUsuario(new ElementoListaUsuario(new Usuario(username, senha, nome, data, genero)));
-	
 }
 string loguin(ListaUsuario *lista) {
 	string log, senha, erro;
@@ -466,13 +452,14 @@ void excluirPost(string user,ListaUsuario *lista) {
 		if (post == 80) {
 			opcao ++;
 		}
-		lista->ExibirPostUsuario(user, opcao);
+		lista->ExcluirPostUsuario(user, opcao,false);
 		post = _getch();
-		if (post == 13) { //excluir post selecionado
-
+		if (post == 13) {
+			lista->ExcluirPostUsuario(user, opcao, true);
+			return;
 		}
-		if (post == 27) { //cancelar e voltar pra timeline
-
+		if (post == 27) {
+			return;
 		}
 	}
 }

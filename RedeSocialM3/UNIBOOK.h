@@ -301,7 +301,7 @@ void CriarConta(ListaUsuario *lista) {
 		if (erro != " ")
 			botao_2(erro);
 		username = UserName();
-	} while (username == "exit" || !lista->VerificarUsername(username, erro));
+	} while (username != "exit" || !lista->VerificarUsername(username, erro));
 	if (username == "@exit")
 		return;
 	erro = " ";
@@ -388,7 +388,7 @@ void opcaoMenu(ListaUsuario *lista, bool &sair, string &conta) {
 	}
 }
 string criarPost(string conta,ListaUsuario *lista) {
-	string texto ,user, erro;
+	string texto;
 	telaNewPost(0);
 	bool valida = true;
 	do {
@@ -402,12 +402,18 @@ string criarPost(string conta,ListaUsuario *lista) {
 		} while (texto.length() > 280);
 		for (int x = 0; x < texto.length(); x++) { //tem q ver isso ake
 			if (texto[x] == '@') {
-				int max;
-				for (int i = x; i < texto.length(); i++) {
-					if (texto[i] == ' ') {
-						max = i;
+				int max=0;
+				string user, erro;
+				int i = x;
+				do {
+					if ((int)texto[i] == 32 || i == texto.length() - 1) {
+						if (i == texto.length() - 1)
+							max = i + 1;
+						else
+							max = i;
 					}
-				}
+					i++;
+				} while (max == 0);
 				for (int y = x; y < max; y++) {
 					user += texto[y];
 				}
@@ -419,21 +425,24 @@ string criarPost(string conta,ListaUsuario *lista) {
 					valida = false;
 			}
 		}
-	} while (!valida);
+	} while (valida);
 	return texto;
 }
 void Unibook() {
+	Usuario *admin = new Usuario("@admin", " ", "Administrador", " ", " ");
 	ElementoListaPost *elementoPostAdmin = new ElementoListaPost(new Post("Bem Vindos ao UNIBOOK", "@admin"));
-	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(new Usuario("@admin", "admin", "Administrador", " ", " ")),(elementoPostAdmin));
+	ListaUsuario *lista = new ListaUsuario(new ElementoListaUsuario(admin),(elementoPostAdmin));
+	
 	bool sair = false;
 	string logado = "";
 	opcaoMenu(lista,sair,logado);
-	
-	int atual=0, anterior=0;
+	int atual = 0;
 	while (!sair) {
 		system("cls");
 		botao("LOGADO: " + logado);
-		botao_2("Precione Enter para criar um post");
+		botao_2("Enter Novo Post");
+		botao_2("Del deletar Post");
+		botao_2("Esc Sair");
 		lista->MostrarPostUsuario(elementoPostAdmin);
 		atual = _getch();
 		if (atual == 13) {
@@ -444,7 +453,6 @@ void Unibook() {
 		if (atual == 27) {
 			opcaoMenu(lista, sair, logado);
 		}
-
 	}
 
 	

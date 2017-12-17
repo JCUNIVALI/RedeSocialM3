@@ -328,6 +328,7 @@ void CriarConta(ListaUsuario *lista) {
 		return;
 	if (erro != " ") {
 		botao_2(erro);
+		system("pause");
 		return;
 	}
 	genero = Genero(SelecionarGenero());
